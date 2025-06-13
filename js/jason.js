@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 .forEach(el => el.style.display = 'flex');
         }
     }
-    
+
     detectDevice();
     window.addEventListener('resize', detectDevice);
 });
