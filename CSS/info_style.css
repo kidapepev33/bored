@@ -1,0 +1,47 @@
+body .header__info{
+    position: relative;
+}
+@media (max-width: 768px) {
+    main .Info{
+        margin-top: 10rem;
+    }
+    .Info h2{
+        font-size: 2rem;
+    }
+    .text-aling a{
+        font-size: 1.2rem;
+    }
+}
+.Info h2{
+    margin: 0.5rem 0rem;
+}
+.Info__text{
+    margin: 0rem 2%;
+}
+.Servicios{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin: auto 1.5rem;
+    margin-bottom: 2rem;
+}
+.Servicios h3{
+    margin: 0.9rem;
+}
+
+    .Servicios_tittle {
+        margin: 0.5rem 0rem;
+
+    }
+@media (max-width: 720px) {
+    .Servicios {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem;
+    }
+
+    .Servicios_tittle {
+        margin: 1rem;
+        margin-top: none;
+    }
+}

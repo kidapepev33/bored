@@ -1,0 +1,87 @@
+:root {
+    --background: #1d0213;
+    --menu-background: #1d0213e3;
+    --second-background: #2b041d;
+    --principal: #4718ac5b;
+    --second: #065063;
+    --neon: #63e3c2;
+    --neon2: #ff0073;
+    --menuhover: #c9005b;
+    --white: #fff;
+    --nav: #2b041d;
+    --button: #5f012b;
+}
+
+/*Gobales*/
+* {
+    color: var(--white);
+}
+
+body,
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0rem;
+    padding: 0rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 62.5%;
+    background-color: var(--background);
+}
+body, h1, h2, h3, p, a, ul, li {
+    margin: 0rem;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p,
+a {
+    font-size: 1.2rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*Utilidades*/
+.text-aling {
+    text-align: center;
+}
+
+@media(min-width:768px) {
+    .box {
+        margin: 0% 15%;
+        border-radius: 2rem;
+        padding-bottom: 2rem;
+        margin-top: 3rem;
+        position: relative;
+    }
+}
+
+.box {
+    border: 1px solid var(--neon);
+    background-color: var(--principal);
+    padding-bottom: 1rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    padding-top: 0.1rem;
+}
+
+.button {
+    text-decoration: none;
+    background-color: var(--second);
+    padding: 10px;
+    border-radius: 20px;
+}

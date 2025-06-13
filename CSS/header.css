@@ -1,0 +1,138 @@
+/*Header desktop*/
+.header{ 
+    border: 2px solid var(--neon);
+    border-top: none;
+    background-color: var(--menu-background);
+    backdrop-filter: blur(5px);
+    border-radius: 0rem 0rem 2rem 2rem;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--white);
+}
+/*Header mobile*/
+.mobile-only {
+    width: 100%;
+    background: linear-gradient(0deg, rgb(37, 3, 25) 0%, rgba(71, 3, 36, 0.808) 100%);
+    backdrop-filter: blur(10px);
+    color: var(--white);
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+}
+
+.header__flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+}
+.header__flex a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header__flex .text-aling {
+    font-size: 2.2rem;
+}
+
+.logo {
+    height: 9vh;
+}
+/*Navegacion Desktop*/
+.nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem ;
+}
+.nav__container{
+    background-color: var(--second-background);
+    border-radius: 2rem;
+    border: 1px solid var(--button);
+    display: flex;
+    padding: 0.5rem 2.1rem;
+}
+.nav__link{
+    gap: 2rem;
+}
+.nav__link a{
+    font-size: 1.5rem;
+}
+.nav div{
+    display: flex;
+    gap: 2rem;
+}
+.nav-icons .bi{
+    padding:  0rem;
+}
+.nav-icons{
+    padding: 0.2rem 1rem;
+    border-radius: 50px;
+    transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+.nav-icons:hover{
+    color: var(--neon2);
+    background-color: var(--button);
+    transform: scale(1.05);
+}
+
+div .bi-cart{
+    font-weight: 700px;
+    margin: 0rem 1rem;
+    }
+
+/*Navegacion Mobile*/
+@media (max-width: 768px) {
+    .submenu__link {
+        margin-top: 0.1rem;
+    }
+}
+.submenu {
+    background: linear-gradient(0deg,rgba(71, 3, 36, 1) 0%, rgb(37, 3, 25) 100%);
+    backdrop-filter: blur(10px);
+    position: absolute;
+}
+.submenu__link ul{
+    margin-top: 0.5rem;
+}
+.submenu__desplegable {
+
+    margin: 0rem;
+    padding: 0.2rem 1rem;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+ul,
+li,
+a {
+    font-weight: 700;
+    font-size: 1.6rem;
+    list-style: none;
+}
+
+ul {
+    display: none;
+}
+
+li:hover>ul {
+    display: block;
+}
+
+a:hover {
+    color: var(--menuhover);
+}
