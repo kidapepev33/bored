@@ -1,20 +1,22 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     console.log('DOM está listo');
-    
+
     function detectDevice() {
         const width = window.innerWidth;
-        
-        // Ocultar todo
-        document.querySelectorAll('.mobile-only, .desktop-only')
-            .forEach(el => el.style.display = 'none');
-        
+
         // Mostrar según dispositivo
         if (width <= 768) {
-            document.querySelectorAll('.mobile-only')
-                .forEach(el => el.style.display = 'block');
+            fetch('header-mobile.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                });
         } else {
-            document.querySelectorAll('.desktop-only')
-                .forEach(el => el.style.display = 'flex');
+            fetch('header-desktop.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                });
         }
     }
 
