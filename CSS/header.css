@@ -103,6 +103,9 @@ div .bi-cart{
     backdrop-filter: blur(10px);
     position: absolute;
 }
+.submenu__link span{
+    font-size: 2rem;
+}
 .submenu__link ul{
     margin-top: 0.5rem;
 }

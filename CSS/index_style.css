@@ -33,7 +33,7 @@
 
 
 .games__content {
-    margin: 5% 5%;
+    margin: 4% 4% 1% 4%;
 }
 
 .games__box {
@@ -44,7 +44,7 @@
 
 
 .games__img {
-    height: 30%;
+    height: 23%;
     width: 100%;
     border-radius: 0.7rem;
 }
@@ -52,6 +52,8 @@
     z-index: 2;
 }
 .games__tittle{
+    text-wrap: nowrap;
+    overflow: ellipsis;
     font-weight: 700;
 }
 .games__text{
