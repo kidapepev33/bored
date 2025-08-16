@@ -10,7 +10,7 @@
     --white: #fff;
     --nav: #2b041d;
     --button: #5f012b;
-
+    --boxsecond: #300c4cd3;
 }
 
 /*Gobales*/
@@ -21,6 +21,8 @@
 body,
 html {
     height: 100%;
+      margin: 0;
+
 }
 body {
     margin: 0rem;

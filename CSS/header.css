@@ -1,4 +1,8 @@
 /*Header desktop*/
+#header-container {
+    top: 0;
+    position: absolute;
+}
 .header{ 
     display: flex;
     border: 2px solid var(--neon);
