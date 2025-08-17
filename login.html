@@ -200,8 +200,9 @@
         </div>
     </footer>
 
-    <script src="/js/jason.js"></script>
-    <script src="/js/api.js"></script>
+    <script src="/js/jason.js?v=1.1"></script>
+    <script src="/js/api.js?v=1.1"></script>
+    <script src="/js/auth-status.js?v=1.1"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Elementos del DOM
@@ -216,8 +217,89 @@
 
             // Verificar si el usuario ya está logueado
             const userToken = localStorage.getItem('userToken');
-            if (userToken) {
-                window.location.href = 'index.html'; // Redirigir a la página principal si ya está logueado
+            const userData = localStorage.getItem('userData');
+            
+            if (userToken && userData) {
+                // Obtener datos del usuario
+                const user = JSON.parse(userData);
+                
+                // Mostrar mensaje de bienvenida en vez de redirigir inmediatamente
+                loginForm.classList.add('hidden');
+                registerForm.classList.add('hidden');
+                
+                // Crear contenedor para el mensaje de ya logueado
+                const alreadyLoggedContainer = document.createElement('div');
+                alreadyLoggedContainer.id = 'already-logged';
+                alreadyLoggedContainer.style.textAlign = 'center';
+                alreadyLoggedContainer.style.padding = '20px';
+                
+                // Crear avatar de usuario más grande
+                const userAvatar = document.createElement('div');
+                userAvatar.style.width = '64px';
+                userAvatar.style.height = '64px';
+                userAvatar.style.borderRadius = '50%';
+                userAvatar.style.backgroundColor = '#4CAF50';
+                userAvatar.style.color = 'white';
+                userAvatar.style.display = 'flex';
+                userAvatar.style.alignItems = 'center';
+                userAvatar.style.justifyContent = 'center';
+                userAvatar.style.fontSize = '32px';
+                userAvatar.style.fontWeight = 'bold';
+                userAvatar.style.margin = '0 auto 20px';
+                userAvatar.textContent = user.name.charAt(0).toUpperCase();
+                
+                // Crear mensaje de bienvenida
+                const welcomeMessage = document.createElement('h2');
+                welcomeMessage.textContent = `¡Bienvenido de nuevo, ${user.name}!`;
+                welcomeMessage.style.marginBottom = '20px';
+                welcomeMessage.style.color = '#4CAF50';
+                
+                // Información del usuario
+                const userInfo = document.createElement('p');
+                userInfo.textContent = `Ya has iniciado sesión con ${user.email}`;
+                userInfo.style.marginBottom = '30px';
+                
+                // Botones
+                const buttonContainer = document.createElement('div');
+                buttonContainer.style.display = 'flex';
+                buttonContainer.style.justifyContent = 'space-between';
+                buttonContainer.style.maxWidth = '400px';
+                buttonContainer.style.margin = '0 auto';
+                
+                // Botón para ir a la página principal
+                const goHomeBtn = document.createElement('button');
+                goHomeBtn.textContent = 'Ir a la tienda';
+                goHomeBtn.className = 'btn-login';
+                goHomeBtn.style.flex = '1';
+                goHomeBtn.style.marginRight = '10px';
+                goHomeBtn.addEventListener('click', function() {
+                    window.location.href = 'index.html';
+                });
+                
+                // Botón para cerrar sesión
+                const logoutBtn = document.createElement('button');
+                logoutBtn.textContent = 'Cerrar sesión';
+                logoutBtn.className = 'btn-register';
+                logoutBtn.style.flex = '1';
+                logoutBtn.style.marginLeft = '10px';
+                logoutBtn.style.backgroundColor = '#f44336';
+                logoutBtn.addEventListener('click', function() {
+                    API.logout();
+                    window.location.reload();
+                });
+                
+                // Añadir elementos al contenedor
+                buttonContainer.appendChild(goHomeBtn);
+                buttonContainer.appendChild(logoutBtn);
+                
+                // Añadir todo al contenedor principal
+                alreadyLoggedContainer.appendChild(userAvatar);
+                alreadyLoggedContainer.appendChild(welcomeMessage);
+                alreadyLoggedContainer.appendChild(userInfo);
+                alreadyLoggedContainer.appendChild(buttonContainer);
+                
+                // Añadir el contenedor a la página
+                document.querySelector('.login-container').appendChild(alreadyLoggedContainer);
             }
 
             // Mostrar formulario de registro
