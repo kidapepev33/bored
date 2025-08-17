@@ -71,10 +71,17 @@ a {
 }
 
 /*Utilidades*/
+.footer__fix{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
 .text-aling {
     text-align: center;
 }
-
+.adjust-body{
+    height: 420px;
+}
 .roboto {
     font-family: "Sansation", sans-serif;
     font-weight: 400;

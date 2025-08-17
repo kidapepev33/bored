@@ -1,0 +1,80 @@
+.login-container {
+    margin: 13rem 25%;
+    padding: 2rem 3rem 2rem 2rem;
+}
+@media (max-width: 768px) {
+    .login-container {
+        margin: 20rem 12%;
+        padding: 2rem 3rem 2rem 1rem;
+    }
+    
+} 
+#login-form h2{
+    margin-bottom: 1rem;
+}
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+#register-form  label[for="register-name"] {
+    margin-right: 40px;
+}
+#register-form  label[for="register-confirm-password"] {
+    width: 110px;
+}
+.form-group label[for="login-email"]{
+    margin-right: 64px;
+}
+.login-container .button{
+    width: 100%;
+    font-size: 1rem;
+    border: none;
+    font-weight: bold;
+}
+.form-group label {
+    margin: 0px 10px ;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.toggle-form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.toggle-form a {
+    color: #2196F3;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.message {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    font-size: 1rem;
+}
+
+.hidden {
+    display: none;
+}
