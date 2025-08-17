@@ -1,14 +1,7 @@
 .login-container {
-    margin: 13rem 25%;
+    margin: 10rem 25%;
     padding: 2rem 3rem 2rem 2rem;
 }
-@media (max-width: 768px) {
-    .login-container {
-        margin: 20rem 12%;
-        padding: 2rem 3rem 2rem 1rem;
-    }
-    
-} 
 #login-form h2{
     margin-bottom: 1rem;
 }
@@ -37,6 +30,31 @@
     font-weight: bold;
     font-size: 20px;
 }
+@media (max-width: 600px) {
+    .form-group label {
+        margin: 0px 10px ;
+        font-weight: bold;
+        font-size: 15px;
+    }   
+    .form-group label[for="register-name"] {
+        width: 25px;
+    } 
+    .login-container{
+        margin: 15rem 0rem;
+    }
+}
+@media (max-width: 850px) {
+    .login-container {
+        margin: 10rem 10%;
+    }
+} 
+@media (max-width: 769px) {
+    .login-container {
+        margin: 20rem 10%;
+        padding: 2rem 3rem 2rem 1rem;
+    }
+    
+} 
 
 .form-group input {
     width: 100%;
@@ -77,4 +95,7 @@
 
 .hidden {
     display: none;
+}
+#show-login{
+    font-size: 1.3rem;
 }
