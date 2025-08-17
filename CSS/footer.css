@@ -5,6 +5,11 @@
     background-color: var(--second-background);
     padding-bottom: 1rem;
 }
+.footer__compra{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
 .footer__info{
     padding: 1.5rem 0rem;
 }
