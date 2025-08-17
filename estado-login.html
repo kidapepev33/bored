@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado de Autenticación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .container {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #4CAF50;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+        .status {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: white;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .status.logged-in {
+            background-color: #4CAF50;
+        }
+        .status.logged-out {
+            background-color: #f44336;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .btn-primary {
+            background-color: #2196F3;
+        }
+        .btn-danger {
+            background-color: #f44336;
+        }
+        .not-logged {
+            text-align: center;
+            color: #666;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Estado de Autenticación</h1>
+    
+    <div class="container" id="auth-container">
+        <div id="loading">Cargando estado de autenticación...</div>
+        <div id="logged-in" style="display: none;">
+            <div class="user-info">
+                <div class="avatar" id="user-avatar"></div>
+                <div>
+                    <h2 id="user-name"></h2>
+                    <div>
+                        <span id="user-email"></span>
+                        <span class="status logged-in">Conectado</span>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Detalles de la sesión</h3>
+            <div id="session-details"></div>
+            
+            <h3>Acciones</h3>
+            <button class="btn btn-primary" onclick="goToHome()">Ir a la Tienda</button>
+            <button class="btn btn-danger" onclick="logout()">Cerrar Sesión</button>
+        </div>
+        <div id="not-logged" style="display: none;">
+            <div class="not-logged">
+                <h2>No has iniciado sesión</h2>
+                <p>Para acceder a todas las funcionalidades de la tienda, por favor inicia sesión.</p>
+                <button class="btn btn-primary" onclick="goToLogin()">Iniciar Sesión</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Verificar el estado de autenticación
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ocultar mensaje de carga
+            document.getElementById('loading').style.display = 'none';
+            
+            // Obtener datos de usuario
+            const userToken = localStorage.getItem('userToken');
+            const userData = localStorage.getItem('userData');
+            
+            if (userToken && userData) {
+                // Usuario logueado
+                const user = JSON.parse(userData);
+                
+                // Mostrar sección de logueado
+                document.getElementById('logged-in').style.display = 'block';
+                
+                // Mostrar información del usuario
+                document.getElementById('user-avatar').textContent = user.name.charAt(0).toUpperCase();
+                document.getElementById('user-name').textContent = user.name;
+                document.getElementById('user-email').textContent = user.email;
+                
+                // Mostrar detalles de la sesión
+                const details = document.getElementById('session-details');
+                details.innerHTML = '<pre>' + JSON.stringify(user, null, 2) + '</pre>';
+                
+            } else {
+                // Usuario no logueado
+                document.getElementById('not-logged').style.display = 'block';
+            }
+        });
+        
+        // Funciones de navegación
+        function goToHome() {
+            window.location.href = 'index.html';
+        }
+        
+        function goToLogin() {
+            window.location.href = 'login.html';
+        }
+        
+        function logout() {
+            localStorage.removeItem('userToken');
+            localStorage.removeItem('userData');
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>
