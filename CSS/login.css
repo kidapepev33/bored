@@ -99,3 +99,6 @@
 #show-login{
     font-size: 1.3rem;
 }
+input{
+    color: var(--background);
+}
