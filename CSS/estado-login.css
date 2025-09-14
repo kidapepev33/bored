@@ -1,0 +1,93 @@
+.main-container {
+    max-width: 800px;
+    margin: 12rem auto;
+    padding: 20px;
+    font-family: 'Sansation', sans-serif;
+}
+.estado_login {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.not-logged h2 {
+    margin-bottom: 1rem;
+}
+.not-logged p {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.not-logged button {
+    font-size: 1.5rem;
+}
+.container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: white;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.status.logged-in {
+    background-color: #4CAF50;
+}
+
+.status.logged-out {
+    background-color: #f44336;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.btn-primary {
+    background-color: #2196F3;
+}
+
+.btn-danger {
+    background-color: #f44336;
+}
+
+.not-logged {
+    text-align: center;
+    color: #666;
+}
+
+pre {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+}
