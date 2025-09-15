@@ -111,6 +111,117 @@ a {
     padding-top: 0.1rem;
 }
 
+/* Estilos personalizados para dropdowns */
+select.form-select {
+    background-color: var(--second-background);
+    color: var(--white);
+    border: 1px solid var(--neon);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+select.form-select:focus {
+    outline: none;
+    border-color: var(--neon2);
+    box-shadow: 0 0 5px rgba(255, 0, 115, 0.5);
+}
+
+select.form-select option {
+    background-color: var(--second-background);
+    color: var(--white);
+    padding: 10px;
+}
+
+select.form-select option:hover,
+select.form-select option:focus {
+    background-color: var(--button);
+    color: var(--neon);
+}
+
+/* Aplicar un estilo personalizado para el cursor desplegable */
+select.form-select::-ms-expand {
+    display: none;
+}
+
+/* Estilo para opciones seleccionadas */
+select.form-select option:checked {
+    background-color: var(--neon2);
+    color: var(--white);
+}
+
+/* Estilo personalizado para el icono desplegable con CSS */
+select.form-select {
+    background-image: linear-gradient(45deg, transparent 50%, var(--neon) 50%),
+                     linear-gradient(135deg, var(--neon) 50%, transparent 50%);
+    background-position: calc(100% - 20px) center, calc(100% - 15px) center;
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+    padding-right: 30px; /* Espacio para el icono */
+}
+
+/* Estilos personalizados para inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+input[type="search"],
+input[type="url"],
+textarea {
+    background-color: var(--second-background);
+    color: var(--white);
+    border: 1px solid var(--neon);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    width: 100%;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--neon2);
+    box-shadow: 0 0 5px rgba(255, 0, 115, 0.5);
+}
+
+/* Estilo para placeholder */
+input::placeholder,
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+}
+
+/* Estilo para autocomplete */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--white);
+    -webkit-box-shadow: 0 0 0px 1000px var(--second-background) inset;
+    transition: background-color 5000s ease-in-out 0s;
+    font-size: 1rem;
+}
+
+/* Estilo para campos deshabilitados */
+input:disabled,
+textarea:disabled,
+select:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background-color: rgba(43, 4, 29, 0.5);
+    border-color: rgba(99, 227, 194, 0.5);
+}
+
+/* Estilo para campos inválidos */
+input:invalid:not(:placeholder-shown),
+select:invalid:not(:placeholder-shown) {
+    border-color: #ff3860;
+    background-color: rgba(255, 56, 96, 0.1);
+}
+
 .button {
     text-decoration: none;
     background-color: var(--second);

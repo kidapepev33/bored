@@ -1,0 +1,81 @@
+/* Estilos específicos para el formulario de registro */
+
+/* Asegurar comportamiento adecuado de scroll */
+.adjust-body {
+    min-height: 100vh;
+    padding-bottom: 4rem; /* Espacio para el footer */
+    /* Eliminamos 'position: relative' para evitar conflictos con el header */
+}
+
+/* Mejoras para el contenedor principal y formulario */
+.register-main {
+    padding-top: 2rem; /* Espacio para el header fijo */
+}
+
+.login-container {
+    margin-bottom: 4rem; /* Espacio adicional al final del formulario */
+    padding-bottom: 2rem;
+}
+
+/* Mejoras para las etiquetas de los campos */
+#register-form label {
+    width: 150px;
+    text-align: right;
+    margin-right: 15px;
+    display: inline-block;
+}
+
+/* Ajustar el espaciado entre grupos de formulario */
+#register-form .form-group {
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos para el dropdown de género */
+#register-form .form-select {
+    width: 100%;
+    min-width: 250px;
+    /* Los demás estilos vienen de stylesheet.css */
+}
+
+/* Establecer ancho consistente para todos los inputs */
+#register-form input,
+#register-form select {
+    flex: 1;
+    min-width: 250px;
+    /* Los demás estilos vienen del stylesheet.css */
+}
+
+/* Estilos específicos para el botón de registro */
+#register-form button[type="submit"] {
+    margin-top: 10px;
+    background-color: #2196F3;
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#register-form button[type="submit"]:hover {
+    background-color: #0b7dda;
+}
+
+/* Responsive: ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    #register-form .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    #register-form label {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 5px;
+    }
+    
+    #register-form input,
+    #register-form select {
+        width: 100%;
+    }
+}
