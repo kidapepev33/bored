@@ -1,3 +1,6 @@
+.box {
+  margin: 2rem auto;
+}
 .Promociones {
   display: flex;
   flex-direction: row;
@@ -6,7 +9,6 @@
   max-width: 1300px;
   gap: 30px;
   justify-content: space-between;
-  width: 85%;
 }
 .Promociones .games__box {
   background-color: #ffffff00;
