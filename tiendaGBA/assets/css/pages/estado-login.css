@@ -1,10 +1,15 @@
 .main-container {
     max-width: 800px;
-    margin: 19rem auto;
+    margin: 9rem auto;
     padding: 20px;
     font-family: 'Sansation', sans-serif;
 }
-
+@media (max-width: 768px) {
+    .main-container {
+        margin: 19rem auto;
+    }
+    
+}
 .estado_login {
     text-align: center;
     margin-bottom: 30px;
