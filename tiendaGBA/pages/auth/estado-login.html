@@ -12,30 +12,53 @@
 
     <header id="header-container"></header>
 
-<main class="main-container box estado-login">
-
-    <h1 class="estado_login">Estado de Autenticación</h1>
+<main class="main-container account-wrapper">
+    <h1 class="estado_login">Mi Cuenta</h1>
     
-    <div id="auth-container">
+    <div id="auth-container" class="account-layout">
         <div id="loading">Cargando estado de autenticación...</div>
-        <div id="logged-in" style="display: none;">
-            <div class="user-info">
-                <div class="avatar" id="user-avatar"></div>
-                <div>
-                    <h2 id="user-name"></h2>
-                    <div>
+        
+        <!-- Vista para usuario logueado -->
+        <div id="logged-in">
+            <!-- Menú lateral -->
+            <div class="sidebar-menu">
+                <div class="user-profile">
+                    <div class="avatar" id="user-avatar"></div>
+                    <div class="user-info-details">
+                        <h3 id="user-name"></h3>
                         <span id="user-email"></span>
                         <span class="status logged-in">Conectado</span>
                     </div>
                 </div>
+                
+                <nav class="account-nav">
+                    <!-- Menú para usuarios regulares -->
+                    <div class="menu-section">
+                        <h4>Mi Cuenta</h4>
+                        <ul>
+                            <li class="active"><a href="#datos-personales"><span class="menu-icon">👤</span> Datos Personales</a></li>
+                            <li><a href="#historial-pedidos"><span class="menu-icon">📋</span> Historial de Pedidos</a></li>
+                            <li><a href="#wishlist"><span class="menu-icon">❤️</span> Lista de Deseos</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="menu-section">
+                        <ul>
+                            <li><a href="#" id="logout-link"><span class="menu-icon">🚪</span> Cerrar Sesión</a></li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
             
-            <h3>Detalles de la sesión</h3>
-            <div id="session-details"></div>
-            
-            <h3>Acciones</h3>
-            <button class="btn btn-primary" onclick="goToHome()">Ir a la Tienda</button>
-            <button class="btn btn-danger" onclick="logout()">Cerrar Sesión</button>
+            <!-- Contenido principal -->
+            <div class="account-content" id="account-content">
+                <div id="datos-personales-content" class="content-section active">
+                    <h2>Datos Personales</h2>
+                    <div class="user-details-section">
+                        <p>Bienvenido a tu cuenta personal. Aquí puedes ver y actualizar tu información.</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="not-logged" style="display: none;">
             <div class="not-logged">
@@ -46,7 +69,7 @@
         </div>
     </div>
 </main>
-    <footer class="footer footer__fix">
+    <footer class="footer">
         <div class="footer__tittle">
             <h2>No te pierdas de nuestras promociones</h2>
         </div>
@@ -103,8 +126,9 @@
             </div>
     </footer>
 
-    <script src="../../assets/js/components/header.js"></script>
     <script src="../../assets/js/auth/estado-login.js"></script>
+    <script src="../../assets/js/components/header.js"></script>
+
 
 </body>
 </html>

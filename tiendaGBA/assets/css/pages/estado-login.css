@@ -1,19 +1,205 @@
 .main-container {
-    max-width: 800px;
-    margin: 9rem auto;
-    padding: 20px;
+    max-width: 1000px;
+    margin: 8rem auto 6rem auto; /* Aumentado el margen inferior */
+    padding: 1rem;
     font-family: 'Sansation', sans-serif;
+    min-height: 600px; /* Altura mínima para asegurar espacio suficiente */
 }
 @media (max-width: 768px) {
     .main-container {
-        margin: 19rem auto;
+        margin: 8rem auto 6rem auto;
+        padding: 0.5rem;
     }
     
+    /* Ajustes responsive para el menú lateral */
+    .account-content {
+        padding: 1rem;
+    }
+    
+    .sidebar-menu {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--neon);
+    }
+    
+    .user-profile {
+        padding: 1rem;
+    }
 }
 .estado_login {
     text-align: center;
     margin-bottom: 30px;
     color: var(--neon);
+}
+
+/* Nuevo diseño con menú lateral */
+.account-wrapper {
+    background-color: var(--principal);
+    border: 1px solid var(--neon);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.account-layout {
+    display: block;
+}
+
+#logged-in {
+    display: flex !important; /* Forzar display flex */
+    flex-direction: row;
+}
+
+@media (max-width: 768px) {
+    #logged-in {
+        flex-direction: column;
+    }
+}
+
+/* Estilos para el menú lateral */
+.sidebar-menu {
+    width: 280px;
+    background-color: var(--second-background);
+    border-right: 1px solid var(--neon);
+    flex-shrink: 0;
+    display: block !important; /* Forzar visualización */
+}
+
+/* Información del perfil */
+.user-profile {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(99, 227, 194, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.user-profile .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--button);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 auto 15px auto;
+    border: 2px solid var(--neon);
+}
+
+.user-info-details h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--neon);
+}
+
+.user-info-details span {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Navegación */
+.account-nav {
+    padding: 1rem 0;
+}
+
+.menu-section {
+    margin-bottom: 1.5rem;
+}
+
+.menu-section h4 {
+    padding: 0 1.5rem;
+    color: var(--white);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.account-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: block !important;
+    visibility: visible !important;
+}
+
+.account-nav ul li {
+    position: relative;
+    display: list-item !important;
+    visibility: visible !important;
+}
+
+.account-nav ul li a {
+    display: flex !important;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    color: var(--white) !important; /* Forzar color */
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    visibility: visible !important;
+}
+
+.account-nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--neon);
+}
+
+/* Menú activo */
+.account-nav ul li.active a {
+    background-color: rgba(99, 227, 194, 0.15);
+    color: var(--neon);
+    border-left: 3px solid var(--neon);
+}
+
+/* Íconos del menú */
+.menu-icon {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+/* Botón de cerrar sesión */
+#logout-link {
+    color: #ff6b6b !important;
+}
+
+#logout-link:hover {
+    background-color: rgba(255, 107, 107, 0.1);
+}
+
+/* Contenido principal */
+.account-content {
+    flex-grow: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    min-height: 400px; /* Altura mínima para asegurar suficiente espacio */
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.content-section h2 {
+    color: var(--neon);
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(99, 227, 194, 0.3);
+    padding-bottom: 0.5rem;
+}
+
+.user-details-section {
+    background-color: var(--second-background);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 /* Estilos para usuarios logueados */
@@ -115,6 +301,18 @@
 
 .btn-primary:hover {
     background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: var(--second-background);
+    color: white;
+    border: 1px solid var(--neon);
+}
+
+.btn-secondary:hover {
+    background-color: var(--second-background);
+    border-color: var(--neon2);
+    color: var(--neon);
 }
 
 .btn-danger {
