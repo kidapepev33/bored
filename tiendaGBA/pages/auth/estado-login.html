@@ -1,84 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../themes/CSS/_extend.css">
-   <title>Tienda de Videojuegos</title>
+    <title>Estado de Autenticación</title>
+    <link rel="stylesheet" href="../assets/css/_extend.css">
+
 </head>
-<body class="roboto">
-  <header id="header-container"></header>
-   
+<body class="roboto adjust-body ">
 
+    <header id="header-container"></header>
 
-    <main>
-        <div class="background-image"></div>
+<main class="main-container box">
 
-        <div>
-            <h1 class="text-aling main__tittle">Juegos disponibles</h1>
-        </div>
-        <div class="box">
-            <h2 class="text-aling">Seleccion de hoy</h2>
-            <div class="games">
-
-                <a href="Compra.html" class="games__box">
-                    <div class="games__content">
-                        <img class="games__img" src="img/Elden ring.jpg" alt="Elden lord">
-                        <h3 class="games__tittle">
-                            Elden ring
-                        </h3>
-                        <p class="games__text">Precio $50.00 </p>
-
-                    </div>
-                </a>
-
-                <a href="Compra.html" class="games__box">
-                    <div class="games__content">
-                        <img class="games__img" src="img/descarga.webp" alt="Elden lord">
-                        <h3 class="games__tittle">
-                            Doki Doki literature club
-                        </h3>
-                        <p class="games__text">Precio $30.00</p>
-
-                    </div>
-                </a>
-
-                <a href="Compra.html" class="games__box">
-                    <div class="games__content">
-                        <img class="games__img" src="img/RAGNAROK.jpg" alt="Elden lord">
-                        <h3 class="games__tittle">
-                            GoW: Ragnarok
-                        </h3>
-                        <p class="games__text">Precio $45.00 </p>
-
-                    </div>
-                </a>
-
-                <a href="Compra.html" class="games__box">
-                    <div class="games__content">
-                        <img class="games__img" src="img/descarga.jpg" alt="Elden lord">
-                        <h3 class="games__tittle">
-                            Slime Rancher
-                        </h3>
-                        <p class="games__text">Precio $4.99 </p>
-
-                    </div>
-                </a>
-                <div href="Compra.html" class="games__box">
-                    <div class="games__content">
-                        <img class="games__img" src="img/descarga (1).jpg" alt="Elden lord">
-                        <h3 class="games__tittle">
-                            Terraria
-                        </h3>
-                        <p class="games__text">Precio $10.00 </p>
-
+    <h1 class="estado_login">Estado de Autenticación</h1>
+    
+    <div id="auth-container">
+        <div id="loading">Cargando estado de autenticación...</div>
+        <div id="logged-in" style="display: none;">
+            <div class="user-info">
+                <div class="avatar" id="user-avatar"></div>
+                <div>
+                    <h2 id="user-name"></h2>
+                    <div>
+                        <span id="user-email"></span>
+                        <span class="status logged-in">Conectado</span>
                     </div>
                 </div>
             </div>
+            
+            <h3>Detalles de la sesión</h3>
+            <div id="session-details"></div>
+            
+            <h3>Acciones</h3>
+            <button class="btn btn-primary" onclick="goToHome()">Ir a la Tienda</button>
+            <button class="btn btn-danger" onclick="logout()">Cerrar Sesión</button>
         </div>
-    </main>
-    <footer class="footer">
+        <div id="not-logged" style="display: none;">
+            <div class="not-logged">
+                <h2>No has iniciado sesión</h2>
+                <p>Para acceder a todas las funcionalidades de la tienda, por favor inicia sesión.</p>
+                <button class="btn btn-primary" onclick="goToLogin()">Iniciar Sesión</button>
+            </div>
+        </div>
+    </div>
+</main>
+    <footer class="footer footer__fix">
         <div class="footer__tittle">
             <h2>No te pierdas de nuestras promociones</h2>
         </div>
@@ -134,10 +101,7 @@
                 </div>
             </div>
     </footer>
-    <script src="../themes/js/jason.js"></script>
-    <script src="js/api.js"></script>
-    <script src="js/auth-status.js"></script>
-    <script src="js/verify-sesion.js"></script>
-</body>
 
+    <script src="../assets/js/components/header.js"></script>
+</body>
 </html>

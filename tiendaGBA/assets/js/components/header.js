@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Mostrar según dispositivo
         if (width <= 768) {
-            fetch('../view/Global/header-mobile.html')
+            fetch('../includes/components/header-mobile.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('header-container').innerHTML = data;
                 });
         } else {
-            fetch('../view/Global/header-desktop.html')
+            fetch('../includes/components/header-desktop.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('header-container').innerHTML = data;
