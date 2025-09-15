@@ -1,23 +1,17 @@
-/* Estilos específicos para el formulario de registro */
-
-/* Asegurar comportamiento adecuado de scroll */
 .adjust-body {
     min-height: 100vh;
-    padding-bottom: 4rem; /* Espacio para el footer */
-    /* Eliminamos 'position: relative' para evitar conflictos con el header */
+    padding-bottom: 4rem;
 }
 
-/* Mejoras para el contenedor principal y formulario */
 .register-main {
-    padding-top: 2rem; /* Espacio para el header fijo */
+    padding-top: 2rem;
 }
 
 .login-container {
-    margin-bottom: 4rem; /* Espacio adicional al final del formulario */
+    margin-bottom: 4rem;
     padding-bottom: 2rem;
 }
 
-/* Mejoras para las etiquetas de los campos */
 #register-form label {
     width: 150px;
     text-align: right;
@@ -25,29 +19,23 @@
     display: inline-block;
 }
 
-/* Ajustar el espaciado entre grupos de formulario */
 #register-form .form-group {
     margin-bottom: 22px;
     display: flex;
     align-items: center;
 }
 
-/* Estilos para el dropdown de género */
 #register-form .form-select {
     width: 100%;
     min-width: 250px;
-    /* Los demás estilos vienen de stylesheet.css */
 }
 
-/* Establecer ancho consistente para todos los inputs */
 #register-form input,
 #register-form select {
     flex: 1;
     min-width: 250px;
-    /* Los demás estilos vienen del stylesheet.css */
 }
 
-/* Estilos específicos para el botón de registro */
 #register-form button[type="submit"] {
     margin-top: 10px;
     background-color: #2196F3;
@@ -61,7 +49,6 @@
     background-color: #0b7dda;
 }
 
-/* Responsive: ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
     #register-form .form-group {
         flex-direction: column;
@@ -78,4 +65,28 @@
     #register-form select {
         width: 100%;
     }
+}
+
+.hidden {
+    display: none;
+}
+
+.success {
+    background-color: rgba(25, 135, 84, 0.2); 
+    color: #198754; 
+    border: 1px solid #198754;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.error {
+    background-color: rgba(220, 53, 69, 0.2); 
+    color: #dc3545; 
+    border: 1px solid #dc3545;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-weight: 500;
 }

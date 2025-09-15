@@ -4,19 +4,121 @@
     padding: 20px;
     font-family: 'Sansation', sans-serif;
 }
+
 .estado_login {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    color: var(--neon);
 }
+
+/* Estilos para usuarios logueados */
+#loading {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: var(--second-background);
+    border-radius: 10px;
+    border: 1px solid var(--neon);
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--button);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-right: 20px;
+    border: 2px solid var(--neon);
+}
+
+#logged-in h2 {
+    margin: 0 0 10px 0;
+    color: var(--white);
+}
+
+.status {
+    font-size: 0.9rem;
+    padding: 3px 8px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+.logged-in {
+    background-color: rgba(25, 135, 84, 0.2);
+    color: #4CAF50;
+}
+
+#session-details {
+    background-color: var(--second-background);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+#session-details p {
+    margin: 5px 0;
+}
+
+/* Estilos para usuarios no logueados */
+.not-logged {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--second-background);
+    border-radius: 10px;
+    border: 1px solid var(--button);
+}
+
 .not-logged h2 {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    color: var(--neon2);
 }
+
 .not-logged p {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
 }
-.not-logged button {
-    font-size: 1.5rem;
+
+/* Estilos para botones */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--second);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: var(--menuhover);
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: var(--neon2);
 }
 .container {
     border: 1px solid #ddd;

@@ -1,0 +1,19 @@
+.condiciones {
+    margin-top: 12rem;
+    backdrop-filter: blur(10px);
+    background-color: var(--boxsecond);
+}
+@media (max-width: 768px) {
+    .condiciones {
+        margin-top: 15rem;
+    }
+    
+}
+.condiciones__text h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.condiciones__text {
+    padding: 2rem;
+    text-align: justify;
+}

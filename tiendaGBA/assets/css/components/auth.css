@@ -1,0 +1,43 @@
+.logged-in-user {
+    color: var(--neon) !important;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.logged-in-user::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.logged-in-user:hover {
+    color: var(--neon2) !important;
+}
+
+.logout-button {
+    background-color: var(--menuhover);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 0.9rem;
+    margin-left: 15px;
+}
+
+.logout-button:hover {
+    background-color: var(--neon2);
+}
+
+@media (max-width: 768px) {
+    .logged-in-user {
+        justify-content: flex-start;
+    }
+}
