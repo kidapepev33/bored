@@ -82,6 +82,9 @@ a {
 .adjust-body{
     height: 420px;
 }
+.no-scroll{
+    height: 100px;
+}
 .roboto {
     font-family: "Sansation", sans-serif;
     font-weight: 400;
