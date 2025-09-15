@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Mostrar según dispositivo
         if (width <= 768) {
-            fetch('../includes/components/header-mobile.html')
+            fetch('/tiendaGBA/includes/components/header-mobile.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('header-container').innerHTML = data;
                 });
         } else {
-            fetch('../includes/components/header-desktop.html')
+            fetch('/tiendaGBA/includes/components/header-mobile.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('header-container').innerHTML = data;
