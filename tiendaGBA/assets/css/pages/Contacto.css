@@ -4,14 +4,24 @@
   margin-bottom: 20px;
 }
 .Contacto label[for="nombre"] {
-  width: 157px;
+  width: 162px;
 }
 .Contacto label {
-  width: 120px;
+  width: 130px;
   margin: 0px;
 }
 .Contacto .Contacto_flex {
+  width: 100%;
   display: flex;
   gap: 20px;
   margin-bottom: 0px;
+}
+.Contacto .Contacto_flex input[type="text"] {
+  width: 100%;
+}
+.Contacto .Contacto_flex input[type="email"] {
+  width: 120%;
+}
+.Contacto .Contacto_flex .form-group {
+  width: 100%;
 }
