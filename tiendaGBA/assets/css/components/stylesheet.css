@@ -163,13 +163,7 @@ select.form-select {
 }
 
 /* Estilos personalizados para inputs */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="tel"],
-input[type="number"],
-input[type="search"],
-input[type="url"],
+input,
 textarea {
     background-color: var(--second-background);
     color: var(--white);

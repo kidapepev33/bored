@@ -1,0 +1,17 @@
+.Contacto .Contacto_tittle {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.Contacto label[for="nombre"] {
+  width: 157px;
+}
+.Contacto label {
+  width: 120px;
+  margin: 0px;
+}
+.Contacto .Contacto_flex {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 0px;
+}
