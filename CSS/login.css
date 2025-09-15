@@ -69,6 +69,7 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
+    color: black;
 }
 
 .toggle-form {
@@ -81,28 +82,21 @@
     text-decoration: none;
     cursor: pointer;
 }
-
-.message {
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 5px;
-    margin-bottom: 1rem;
+.register{
+    margin: 20rem;
 }
 
-.success {
-    background-color: #d4edda;
-    color: #155724;
+.register_message {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+}
+.register_tittle {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
-.error {
-    background-color: #f8d7da;
-    color: #721c24;
-    font-size: 1rem;
-}
-
-.hidden {
-    display: none;
-}
 #show-login{
     font-size: 1.3rem;
 }
