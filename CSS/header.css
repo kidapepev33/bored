@@ -143,5 +143,8 @@ li:hover>ul {
 }
 
 a:hover {
+    transition: color 0.3s ease;
+}
+a:hover {
     color: var(--menuhover);
 }
