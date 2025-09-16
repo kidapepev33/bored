@@ -1,34 +1,39 @@
 <?php
-session_start();
 require_once '../../config/server.php';
-
+session_start();
 header('Content-Type: application/json');
 
 $input = json_decode(file_get_contents('php://input'), true);
-$email = $conn->real_escape_string($input['email'] ?? '');
+$email = trim($input['email'] ?? '');
 $password = $input['password'] ?? '';
+$remember = $input['remember'] ?? false;
 
 if (!$email || !$password) {
     echo json_encode(['success' => false, 'message' => 'Campos incompletos']);
     exit;
 }
 
-$sql = "SELECT * FROM usuarios WHERE email='$email' LIMIT 1";
-$result = $conn->query($sql);
+$stmt = $conn->prepare("SELECT id, name, email, password FROM usuarios WHERE email = ? LIMIT 1");
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$result = $stmt->get_result();
 
-if ($row = $result->fetch_assoc()) {
-    if (password_verify($password, $row['password'])) {
-        $_SESSION['user_id'] = $row['id'];
-        $_SESSION['user_name'] = $row['name'];
-        $_SESSION['user_email'] = $row['email'];
+if ($user = $result->fetch_assoc()) {
+    if (password_verify($password, $user['password'])) {
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['user_name'] = $user['name'];
+        $_SESSION['user_email'] = $user['email'];
+        
+        // Remember me simple con cookies
+        if ($remember) {
+            setcookie('remember_user', $user['id'], time() + (30 * 24 * 60 * 60), '/');
+            setcookie('remember_email', $user['email'], time() + (30 * 24 * 60 * 60), '/');
+        }
+        
         echo json_encode(['success' => true]);
         exit;
-    } else {
-        echo json_encode(['success' => false, 'message' => 'Credenciales incorrectas']);
-        exit;
     }
-} else {
-    echo json_encode(['success' => false, 'message' => 'Credenciales incorrectas']);
-    exit;
 }
-?>
+
+// Si no hay sesión, redirige al login
+echo json_encode(['success' => false, 'message' => 'Credenciales incorrectas']);

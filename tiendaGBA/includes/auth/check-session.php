@@ -1,32 +1,46 @@
 <?php
-session_start();
 require_once '../../config/server.php';
+session_start();
 header('Content-Type: application/json');
 
-if (isset($_SESSION['user_id']) && isset($_SESSION['user_name'])) {
-    // Obtener el rol del usuario desde la base de datos
-    $userId = $_SESSION['user_id'];
-    $sql = "SELECT rol FROM usuarios WHERE id = $userId LIMIT 1";
-    $result = $conn->query($sql);
+// Si no hay sesión, verificar remember me
+if (!isset($_SESSION['user_id']) && isset($_COOKIE['remember_user']) && isset($_COOKIE['remember_email'])) {
+    $userId = $_COOKIE['remember_user'];
+    $email = $_COOKIE['remember_email'];
     
-    $role = 'client'; // Valor por defecto
-    if ($result && $result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $role = $row['rol'];
+    $stmt = $conn->prepare("SELECT id, name, email, rol FROM usuarios WHERE id = ? AND email = ? LIMIT 1");
+    $stmt->bind_param("is", $userId, $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if ($user = $result->fetch_assoc()) {
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['user_name'] = $user['name'];
+        $_SESSION['user_email'] = $user['email'];
     }
+}
+
+if (isset($_SESSION['user_id'])) {
+    $stmt = $conn->prepare("SELECT id, name, email, rol FROM usuarios WHERE id = ? LIMIT 1");
+    $stmt->bind_param("i", $_SESSION['user_id']);
+    $stmt->execute();
+    $result = $stmt->get_result();
     
-    echo json_encode([
-        'isLoggedIn' => true,
-        'user' => [
-            'id' => $_SESSION['user_id'],
-            'name' => $_SESSION['user_name'],
-            'email' => $_SESSION['user_email'] ?? '',
-            'role' => $role
-        ]
-    ]);
+    if ($user = $result->fetch_assoc()) {
+        echo json_encode([
+            'isLoggedIn' => true,
+            'user' => [
+                'id' => $user['id'],
+                'name' => $user['name'],
+                'email' => $user['email'],
+                'role' => $user['rol']
+            ]
+        ]);
+    } else {
+        session_destroy();
+        echo json_encode(['isLoggedIn' => false]);
+    }
 } else {
-    echo json_encode([
-        'isLoggedIn' => false
-    ]);
+    echo json_encode(['isLoggedIn' => false]);
 }
 ?>

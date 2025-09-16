@@ -12,6 +12,9 @@ if (ini_get("session.use_cookies")) {
 }
 
 session_destroy();
+// Limpiar cookies de remember me
+setcookie('remember_user', '', time() - 3600, '/');
+setcookie('remember_email', '', time() - 3600, '/');
 
 header("Location: /bored/tiendaGBA/pages/auth/login.html");
 exit;

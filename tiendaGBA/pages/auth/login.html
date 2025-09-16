@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/_extend.css">
-
-
     <title>Iniciar Sesión - GBA</title>
 </head>
 
@@ -19,17 +17,29 @@
                 <form id="login-form">
                     <h2>Iniciar Sesión</h2>
                     <div id="login-message" class="message hidden"></div>
+                    
                     <div class="form-group">
                         <label for="login-email">Email:</label>
-                        <input type="email" name="email" id="login-email" placeholder="Email" required>
+                        <input type="email" name="email" id="login-email" placeholder="Email" required autocomplete="email">
                     </div>
+                    
                     <div class="form-group">
                         <label for="login-password">Contraseña:</label>
-                        <input type="password" name="password" id="login-password" placeholder="Contraseña" required>
+                        <input type="password" name="password" id="login-password" placeholder="Contraseña" required autocomplete="current-password">
                     </div>
-                    <button type="submit" class="button">Iniciar Sesión</button>
+                    
+                    <div class="remember-me-group">
+                        <input type="checkbox" id="remember-me" name="remember">
+                        <label for="remember-me">Recordarme por 30 días</label>
+                    </div>
+                    
+                    <button type="submit" class="button">
+                        <span class="button-text">Iniciar Sesión</span>
+                    </button>
+                    
                     <div class="toggle-form">
                         <p>¿No tienes una cuenta? <a href="register.html">Regístrate</a></p>
+                        <p><a href="#" onclick="showResetPassword()">¿Olvidaste tu contraseña?</a></p>
                     </div>
                 </form>
             </div>
@@ -93,6 +103,12 @@
             </div>
         </div>
     </footer>
+    
+    <script>
+        function showForgotPassword() {
+            alert('Función de recuperación de contraseña en desarrollo.\nPor favor contacta al administrador del sistema.');
+        }
+    </script>
     <script src="../../assets/js/components/header.js"></script>
     <script src="../../assets/js/auth/login.js"></script>
 </body>

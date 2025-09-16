@@ -45,7 +45,7 @@
 }
 
 #logged-in {
-    display: flex !important; /* Forzar display flex */
+    display: flex; /* Forzar display flex */
     flex-direction: row;
 }
 
@@ -61,7 +61,7 @@
     background-color: var(--second-background);
     border-right: 1px solid var(--neon);
     flex-shrink: 0;
-    display: block !important; /* Forzar visualización */
+    display: block; /* Forzar visualización */
 }
 
 /* Información del perfil */

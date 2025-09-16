@@ -124,3 +124,88 @@
     margin-bottom: 15px;
     font-weight: 500;
 }
+
+/* Estilos adicionales para mejoras de seguridad */
+.remember-me-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.remember-me-group input[type="checkbox"] {
+    margin-right: 8px;
+    width: auto;
+    transform: scale(1.2);
+}
+
+.session-warning {
+    background-color: rgba(255, 193, 7, 0.2);
+    border: 1px solid #ffc107;
+    color: #856404;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.session-warning button {
+    background-color: #ffc107;
+    color: #212529;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.session-warning button:hover {
+    background-color: #e0a800;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.message.success {
+    background-color: rgba(25, 135, 84, 0.2);
+    color: #198754;
+    border: 1px solid #198754;
+}
+
+.message.error {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+/* Mejorar el botón cuando está deshabilitado */
+.button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Indicador de carga */
+.loading-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Estilos responsivos mejorados */
+@media (max-width: 600px) {
+    .remember-me-group {
+        font-size: 0.8rem;
+    }
+}
