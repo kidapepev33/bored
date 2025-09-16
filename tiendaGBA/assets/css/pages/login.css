@@ -10,12 +10,7 @@
     align-items: center;
     margin-bottom: 20px;
 }
-#register-form  label[for="register-name"] {
-    margin-right: 40px;
-}
-#register-form  label[for="register-confirm-password"] {
-    width: 110px;
-}
+
 .form-group label[for="login-email"]{
     margin-right: 64px;
 }
@@ -69,7 +64,6 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
-    color: black;
 }
 
 .toggle-form {

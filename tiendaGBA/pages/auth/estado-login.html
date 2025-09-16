@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,68 +9,138 @@
 
 
 </head>
+
 <body class="roboto no-scroll">
 
     <header id="header-container"></header>
 
-<main class="main-container account-wrapper">
-    <h1 class="estado_login">Mi Cuenta</h1>
-    
-    <div id="auth-container" class="account-layout">
-        <div id="loading">Cargando estado de autenticación...</div>
-        
-        <!-- Vista para usuario logueado -->
-        <div id="logged-in">
-            <!-- Menú lateral -->
-            <div class="sidebar-menu">
-                <div class="user-profile">
-                    <div class="avatar" id="user-avatar"></div>
-                    <div class="user-info-details">
-                        <h3 id="user-name"></h3>
-                        <span id="user-email"></span>
-                        <span class="status logged-in">Conectado</span>
+    <main class="main-container account-wrapper">
+        <h1 class="estado_login">Mi Cuenta</h1>
+
+        <div id="auth-container" class="account-layout">
+            <div id="loading">Cargando estado de autenticación...</div>
+
+            <!-- Vista para usuario logueado -->
+            <div id="logged-in">
+                <!-- Menú lateral -->
+                <div class="sidebar-menu">
+                    <div class="user-profile">
+                        <div class="avatar" id="user-avatar"></div>
+                        <div class="user-info-details">
+                            <h3 id="user-name"></h3>
+                            <span id="user-email"></span>
+                            <span class="status logged-in">Conectado</span>
+                        </div>
+                    </div>
+
+                    <nav class="account-nav">
+                        <!-- Menú para usuarios regulares -->
+                        <div class="menu-section">
+                            <h4>Mi Cuenta</h4>
+                            <ul>
+                                <li class="active"><a href="#datos-personales"><span class="menu-icon">👤</span> Datos
+                                        Personales</a></li>
+                                <li><a href="#historial-pedidos"><span class="menu-icon">📋</span> Historial de
+                                        Pedidos</a></li>
+                                <li><a href="#wishlist"><span class="menu-icon">❤️</span> Lista de Deseos</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="menu-section">
+                            <ul>
+                                <li><a href="#" id="logout-link"><span class="menu-icon">🚪</span> Cerrar Sesión</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+
+                <div class="border"></div>
+                <!-- Contenido principal -->
+                <div class="account-content" id="account-content">
+                    <div id="datos-personales-content" class="content-section active">
+                        <h2>Datos Personales</h2>
+                        <div class="user-details-section">
+                            <p>Bienvenido a tu cuenta personal. Aquí puedes ver y actualizar tu información.</p>
+                        </div>
+                    </div>
+
+                    <div id="crear-usuario-admin-content" class="content-section">
+                        <h2>Crear Cuenta</h2>
+                        <div class="user-details-section create-admin-user">
+                            <p class="create-admin-user">Crea una cuenta con permisos de administrador</p>
+                            <form id="register-form">
+                                <div id="register-message" class="register_tittle hidden"></div>
+                                <div class="form-group-inline">
+                                    <div class="form-group">
+                                        <label for="register-name">Nombre:</label>
+                                        <input type="text" name="name" id="register-name" placeholder="Nombre" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="register-lastname">Apellidos:</label>
+                                        <input type="text" name="lastname" id="register-lastname"
+                                            placeholder="Apellidos" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-email">Email:</label>
+                                    <input type="email" name="email" id="register-email" placeholder="Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-phone">Teléfono:</label>
+                                    <input type="tel" name="phone" id="register-phone" placeholder="Teléfono" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-gender">Género:</label>
+                                    <select name="gender" id="register-gender" class="form-select" required>
+                                        <option value="" disabled selected>Seleccione su género</option>
+                                        <option value="masculino">Masculino</option>
+                                        <option value="femenino">Femenino</option>
+                                        <option value="otro">Otro</option>
+                                        <option value="no-especificado">Prefiero no especificar</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-password">Contraseña:</label>
+                                    <input type="password" name="password" id="register-password"
+                                        placeholder="Contraseña" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-gender">Rol:</label>
+                                    <input type="radio" id="register-rol" name="rol" value="client">
+                                    <label for="register-rol">client</label><br>
+                                    <input type="radio" id="register-rol" name="rol" value="admin">
+                                    <label for="register-rol">admin</label><br>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Crear Usuario</button>
+                        </div>
+                    </div>
+
+                    <div id="historial-pedidos-content" class="content-section">
+                        <h2>Historial de Pedidos</h2>
+                        <div class="orders-section">
+                            <p>Aquí puedes ver el historial de tus pedidos realizados en nuestra tienda.</p>
+                        </div>
+                    </div>
+
+                    <div id="wishlist-content" class="content-section">
+                        <h2>Lista de Deseos</h2>
+                        <div class="wishlist-section">
+                            <p>Gestiona tu lista de deseos y guarda tus productos favoritos para futuras compras.</p>
+                        </div>
                     </div>
                 </div>
-                
-                <nav class="account-nav">
-                    <!-- Menú para usuarios regulares -->
-                    <div class="menu-section">
-                        <h4>Mi Cuenta</h4>
-                        <ul>
-                            <li class="active"><a href="#datos-personales"><span class="menu-icon">👤</span> Datos Personales</a></li>
-                            <li><a href="#historial-pedidos"><span class="menu-icon">📋</span> Historial de Pedidos</a></li>
-                            <li><a href="#wishlist"><span class="menu-icon">❤️</span> Lista de Deseos</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="menu-section">
-                        <ul>
-                            <li><a href="#" id="logout-link"><span class="menu-icon">🚪</span> Cerrar Sesión</a></li>
-                        </ul>
-                    </div>
-                </nav>
             </div>
-            
-            <div class="border"></div>
-            <!-- Contenido principal -->
-            <div class="account-content" id="account-content">
-                <div id="datos-personales-content" class="content-section active">
-                    <h2>Datos Personales</h2>
-                    <div class="user-details-section">
-                        <p>Bienvenido a tu cuenta personal. Aquí puedes ver y actualizar tu información.</p>
-                    </div>
+            <div id="not-logged" style="display: none;">
+                <div class="not-logged">
+                    <h2>No has iniciado sesión</h2>
+                    <p>Para acceder a todas las funcionalidades de la tienda, por favor inicia sesión.</p>
+                    <button class="btn btn-primary" onclick="goToLogin()">Iniciar Sesión</button>
                 </div>
             </div>
         </div>
-        <div id="not-logged" style="display: none;">
-            <div class="not-logged">
-                <h2>No has iniciado sesión</h2>
-                <p>Para acceder a todas las funcionalidades de la tienda, por favor inicia sesión.</p>
-                <button class="btn btn-primary" onclick="goToLogin()">Iniciar Sesión</button>
-            </div>
-        </div>
-    </div>
-</main>
+    </main>
     <footer class="footer">
         <div class="footer__tittle">
             <h2>No te pierdas de nuestras promociones</h2>
@@ -132,4 +203,5 @@
 
 
 </body>
+
 </html>

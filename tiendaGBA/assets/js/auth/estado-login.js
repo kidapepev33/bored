@@ -197,7 +197,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Mostrar la sección solicitada si existe
-        const targetSection = document.getElementById(sectionId + '-content');
+        let targetSection;
+        if (sectionId === 'create-user-account') {
+            targetSection = document.getElementById('crear-usuario-admin-content');
+        } else {
+            targetSection = document.getElementById(sectionId + '-content');
+        }
+        
         if (targetSection) {
             targetSection.classList.add('active');
         }

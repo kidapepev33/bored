@@ -1,7 +1,7 @@
 @import url(normalize.css);
 @import url(pages/compra.css);
-@import url(pages/index_style.css);
 @import url(components/stylesheet.css);
+@import url(pages/index_style.css);
 @import url(components/header.css);
 @import url(components/footer.css);
 @import url(components/auth.css);

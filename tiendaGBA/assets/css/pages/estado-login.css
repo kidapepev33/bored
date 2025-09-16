@@ -23,6 +23,7 @@
         width: 100%;
         border-right: none;
         border-bottom: 1px solid var(--neon);
+        height: 100%;
     }
 
     .user-profile {
@@ -112,10 +113,6 @@
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* Navegación */
-.account-nav {
-    padding: 1rem 0;
-}
 
 .menu-section {
     margin-bottom: 1.5rem;
@@ -538,4 +535,11 @@ pre {
     .account-content {
         max-height: 60vh;
     }
+}
+.create-admin-user {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+.create-admin-user p {
+    margin-bottom: 1rem;
 }

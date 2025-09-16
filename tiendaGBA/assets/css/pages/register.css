@@ -13,16 +13,23 @@
 }
 
 #register-form label {
-    width: 150px;
-    text-align: right;
+    width: 110px;
+    text-align: left;
     margin-right: 15px;
     display: inline-block;
 }
-
+#register-form label[for="register-lastname"] {
+    margin: 0px;
+    width: 100px;
+}
 #register-form .form-group {
     margin-bottom: 22px;
     display: flex;
     align-items: center;
+}
+#register-form input[type="radio"]{
+    transform: scale(2);
+    max-width: 10px;
 }
 
 #register-form .form-select {
@@ -33,12 +40,12 @@
 #register-form input,
 #register-form select {
     flex: 1;
-    min-width: 250px;
 }
 
 #register-form button[type="submit"] {
     margin-top: 10px;
-    background-color: #2196F3;
+    margin-bottom: 10px;
+    background-color: var(--button);
     color: white;
     padding: 12px;
     border-radius: 5px;
