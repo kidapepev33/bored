@@ -69,30 +69,34 @@
                         <h2>Crear Cuenta</h2>
                         <div class="user-details-section create-admin-user">
                             <p class="create-admin-user">Crea una cuenta con permisos de administrador</p>
-                            <form id="register-form">
-                                <div id="register-message" class="register_tittle hidden"></div>
+
+                            <form id="create-user">
+                                <div id="create-user-message" class="register_tittle hidden"></div>
                                 <div class="form-group-inline">
                                     <div class="form-group">
-                                        <label for="register-name">Nombre:</label>
-                                        <input type="text" name="name" id="register-name" placeholder="Nombre" required>
+                                        <label for="create-user-name">Nombre:</label>
+                                        <input type="text" name="name" id="create-user-name" placeholder="Nombre"
+                                            required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="register-lastname">Apellidos:</label>
-                                        <input type="text" name="lastname" id="register-lastname"
+                                        <label for="create-user-lastname">Apellidos:</label>
+                                        <input type="text" name="lastname" id="create-user-lastname"
                                             placeholder="Apellidos" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="register-email">Email:</label>
-                                    <input type="email" name="email" id="register-email" placeholder="Email" required>
+                                    <label for="create-user-email">Email:</label>
+                                    <input type="email" name="email" id="create-user-email" placeholder="Email"
+                                        required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="register-phone">Teléfono:</label>
-                                    <input type="tel" name="phone" id="register-phone" placeholder="Teléfono" required>
+                                    <label for="create-user-phone">Teléfono:</label>
+                                    <input type="tel" name="phone" id="create-user-phone" placeholder="Teléfono"
+                                        required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="register-gender">Género:</label>
-                                    <select name="gender" id="register-gender" class="form-select" required>
+                                    <label for="create-user-gender">Género:</label>
+                                    <select name="gender" id="create-user-gender" class="form-select" required>
                                         <option value="" disabled selected>Seleccione su género</option>
                                         <option value="masculino">Masculino</option>
                                         <option value="femenino">Femenino</option>
@@ -101,19 +105,25 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="register-password">Contraseña:</label>
-                                    <input type="password" name="password" id="register-password"
+                                    <label for="create-user-password">Contraseña:</label>
+                                    <input type="password" name="password" id="create-user-password"
                                         placeholder="Contraseña" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="register-gender">Rol:</label>
-                                    <input type="radio" id="register-rol" name="rol" value="client">
-                                    <label for="register-rol">client</label><br>
-                                    <input type="radio" id="register-rol" name="rol" value="admin">
-                                    <label for="register-rol">admin</label><br>
-                                    </select>
+                                    <label for="create-user-confirm-password">Confirmar Contraseña:</label>
+                                    <input type="password" name="confirm-password" id="create-user-confirm-password"
+                                        placeholder="Confirmar contraseña" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Rol:</label>
+                                    <input type="radio" id="rol-client" name="rol" value="client">
+                                    <label for="rol-client">Client</label><br>
+
+                                    <input type="radio" id="rol-admin" name="rol" value="admin">
+                                    <label for="rol-admin">Admin</label><br>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Crear Usuario</button>
+                            </form>
                         </div>
                     </div>
 
@@ -197,7 +207,7 @@
                 </div>
             </div>
     </footer>
-
+    <script src="../../assets/js/functions/create-admin.js"></script>
     <script src="../../assets/js/auth/estado-login.js"></script>
     <script src="../../assets/js/components/header.js"></script>
 
