@@ -1,31 +1,37 @@
 .main-container {
     max-width: 1000px;
-    margin: 8rem auto 6rem auto; /* Aumentado el margen inferior */
+    margin: 8rem auto 6rem auto;
+    /* Aumentado el margen inferior */
     padding: 1rem;
     font-family: 'Sansation', sans-serif;
-    min-height: 600px; /* Altura mínima para asegurar espacio suficiente */
+    width: 100%;
+    padding-bottom: 5rem;
+    /* Altura mínima para asegurar espacio suficiente */
+    min-height: 600px;
 }
+
 @media (max-width: 768px) {
     .main-container {
         margin: 8rem auto 6rem auto;
         padding: 0.5rem;
     }
-    
+
     /* Ajustes responsive para el menú lateral */
     .account-content {
         padding: 1rem;
     }
-    
+
     .sidebar-menu {
         width: 100%;
         border-right: none;
         border-bottom: 1px solid var(--neon);
     }
-    
+
     .user-profile {
         padding: 1rem;
     }
 }
+
 .estado_login {
     text-align: center;
     margin-bottom: 30px;
@@ -45,10 +51,14 @@
 }
 
 #logged-in {
-    display: flex; /* Forzar display flex */
+    display: flex;
+    /* Forzar display flex */
     flex-direction: row;
 }
-
+#logged-in .border {
+    height: 33rem;
+    border: 1px solid var(--neon);
+}
 @media (max-width: 768px) {
     #logged-in {
         flex-direction: column;
@@ -61,7 +71,10 @@
     background-color: var(--second-background);
     border-right: 1px solid var(--neon);
     flex-shrink: 0;
-    display: block; /* Forzar visualización */
+    display: block;
+    border-radius: 1rem;
+    border: 1px solid var(--neon);
+    margin-right: 1rem;
 }
 
 /* Información del perfil */
@@ -139,7 +152,8 @@
     align-items: center;
     padding: 0.75rem 1.5rem;
     text-decoration: none;
-    color: var(--white) !important; /* Forzar color */
+    color: var(--white) !important;
+    /* Forzar color */
     font-size: 0.95rem;
     transition: all 0.3s ease;
     visibility: visible !important;
@@ -177,7 +191,8 @@
     flex-grow: 1;
     padding: 2rem;
     overflow-y: auto;
-    min-height: 400px; /* Altura mínima para asegurar suficiente espacio */
+    min-height: 400px;
+    /* Altura mínima para asegurar suficiente espacio */
 }
 
 .content-section {
@@ -323,6 +338,7 @@
 .btn-danger:hover {
     background-color: var(--neon2);
 }
+
 .container {
     border: 1px solid #ddd;
     border-radius: 8px;
