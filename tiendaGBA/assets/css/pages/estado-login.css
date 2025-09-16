@@ -1,14 +1,12 @@
 .main-container {
     max-width: 1000px;
-    margin: 8rem auto 6rem auto;
-    /* Aumentado el margen inferior */
+    margin: 8rem auto 6rem auto; /* Aumentado el margen inferior */
     padding: 1rem;
     font-family: 'Sansation', sans-serif;
     width: 100%;
     padding-bottom: 5rem;
-    /* Altura mínima para asegurar espacio suficiente */
-    min-height: 600px;
 }
+
 
 @media (max-width: 768px) {
     .main-container {
@@ -43,7 +41,6 @@
     background-color: var(--principal);
     border: 1px solid var(--neon);
     border-radius: 10px;
-    overflow: hidden;
 }
 
 .account-layout {
@@ -411,4 +408,134 @@ pre {
     padding: 10px;
     border-radius: 4px;
     overflow-x: auto;
+}
+
+/* Estilos para la visualización de datos del usuario */
+.user-data-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 768px) {
+    .user-data-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
+.data-item {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 15px;
+    background-color: var(--second-background);
+    border-radius: 8px;
+    border: 1px solid rgba(99, 227, 194, 0.2);
+    min-height: 60px;
+}
+
+.data-item label {
+    font-weight: bold;
+    color: var(--neon);
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.data-item span {
+    color: var(--white);
+    font-size: 0.95rem;
+    word-break: break-word;
+}
+
+.user-actions {
+    text-align: center;
+    padding: 15px 0;
+    border-top: 1px solid rgba(99, 227, 194, 0.2);
+    margin-top: 20px;
+    clear: both;
+    width: 100%;
+}
+
+.user-actions .btn {
+    padding: 10px 25px;
+    background-color: var(--button);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.user-actions .btn:hover {
+    background-color: var(--neon);
+    color: var(--principal);
+    transform: translateY(-1px);
+}
+
+/* Mejorar el diseño de la sección de datos personales */
+.user-details-section {
+    background-color: var(--second-background);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(99, 227, 194, 0.3);
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+}
+
+/* Asegurar que el contenido principal tenga suficiente espacio y scroll */
+.account-content {
+    flex-grow: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    height: auto;
+    max-height: 70vh;
+}
+
+/* Asegurar que las secciones de contenido tengan altura automática */
+.content-section {
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+}
+
+.content-section.active {
+    display: block;
+    height: auto;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 600px) {
+    .data-item {
+        padding: 10px 12px;
+        min-height: 50px;
+    }
+    
+    .data-item label {
+        font-size: 0.75rem;
+    }
+    
+    .data-item span {
+        font-size: 0.85rem;
+    }
+    
+    .user-actions .btn {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+    }
+    
+    .user-details-section {
+        padding: 15px;
+    }
+    
+    .account-content {
+        max-height: 60vh;
+    }
 }
