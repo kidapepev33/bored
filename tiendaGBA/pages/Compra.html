@@ -5,32 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/_extend.css">
-
-    <title>Document</title>
+    <title>Compra - Tienda de Videojuegos</title>
 </head>
 
-<body class="roboto background-image" >
+<body class="roboto background-image">
     <header id="header-container"></header>
 
-
-
     <main>
-
-        <div class="box Compra">
-
+        <div class="box Compra" id="product-container">
+            <!-- Aquí se cargará la información del producto dinámicamente -->
             <div>
-                <img src="../assets/images/products/Elden ring.jpg" alt="Elden ring" class="Compra__img">
+                <p>Cargando producto...</p>
             </div>
-
-            <div>
-                <h1>Compra</h1>
-                <h2>Precio: <span></span></h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit tenetur assumenda porro veniam sequi cumque atque itaque cupiditate! Ex quam recusandae quisquam sed numquam? Molestiae incidunt in deleniti provident totam!</p>
-                <a href="carrito.html" class="button comprar">Comprar</a>
-            </div>
-
         </div>
-
     </main>
 
     <footer class="footer footer__fix">
@@ -90,6 +77,7 @@
             </div>
     </footer>
     <script src="../assets/js/components/header.js"></script>
+    <script src="../assets/js/functions/load-product.js"></script>
 </body>
 
 </html>

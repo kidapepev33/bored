@@ -1,0 +1,70 @@
+body {
+    main {
+        .Compra {
+            display: grid;
+            margin-top: 10rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            padding: 2rem 2rem;
+            background-color: var(--boxsecond);
+            backdrop-filter: blur(10px);
+
+            h2 {
+                margin-bottom: 1.5rem;
+            }
+
+            .comprar {
+                padding: 0.7rem;
+            }
+            .Compra_flex{
+                display: flex;
+                flex-direction: row;
+                gap: 2rem;
+            }
+            .Compra_categoria,
+            .Compra_plataforma,
+            .Compra_cantidad {
+                font-size: 1.2rem;
+                margin-bottom: 1.2rem;
+
+                strong {
+                    display: block;
+                    font-size: 23px;
+                    font-weight: 700;
+                }
+            }
+            .Compra_cantidad{
+                margin-bottom: 2rem;
+            }
+            .Compra_description {
+                line-height: 1.6;
+            }
+            p {
+                margin-bottom: 2rem;
+            }
+
+            div {
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 10px;
+                }
+            }
+
+        }
+
+        @media (max-width: 768px) {
+            .Compra {
+                top: 4rem;
+            }
+        }
+
+        @media (max-width: 758px) {
+            .Compra {
+                margin-top: 18rem;
+            }
+        }
+
+    }
+}

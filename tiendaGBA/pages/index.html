@@ -19,65 +19,15 @@
         <div>
             <h1 class="text-aling main__tittle">Juegos disponibles</h1>
         </div>
+
         <div class="box">
             <h2 class="text-aling">Seleccion de hoy</h2>
-            <div class="games">
-
-                <a href="../pages/Compra.html" class="games__box">
-                    <div class="games__content">
-                        <img class="games__img" src="../assets/images/products/Elden ring.jpg" alt="Elden lord">
-                        <h3 class="games__tittle">
-                            Elden ring
-                        </h3>
-                        <p class="games__text">Precio $50.00 </p>
-
-                    </div>
-                </a>
-
-                <a href="../pages/Compra.html" class="games__box">
-                    <div class="games__content">
-                        <img class="games__img" src="../assets/images/products/descarga.webp" alt="Elden lord">
-                        <h3 class="games__tittle">
-                            Doki Doki literature club
-                        </h3>
-                        <p class="games__text">Precio $30.00</p>
-
-                    </div>
-                </a>
-
-                <a href="../pages/Compra.html" class="games__box">
-                    <div class="games__content">
-                        <img class="games__img" src="../assets/images/products/RAGNAROK.jpg" alt="Elden lord">
-                        <h3 class="games__tittle">
-                            GoW: Ragnarok
-                        </h3>
-                        <p class="games__text">Precio $45.00 </p>
-
-                    </div>
-                </a>
-
-                <a href="../pages/Compra.html" class="games__box">
-                    <div class="games__content">
-                        <img class="games__img" src="../assets/images/products/descarga.jpg" alt="Elden lord">
-                        <h3 class="games__tittle">
-                            Slime Rancher
-                        </h3>
-                        <p class="games__text">Precio $4.99 </p>
-
-                    </div>
-                </a>
-                <a href="../pages/Compra.html" class="games__box">
-                    <div class="games__content">
-                        <img class="games__img" src="../assets/images/products/descarga (1).jpg" alt="Elden lord">
-                        <h3 class="games__tittle">
-                            Terraria
-                        </h3>
-                        <p class="games__text">Precio $10.00 </p>
-
-                    </div>
-                </a>
+            <div class="games" id="games-container">
+                <!-- Aquí se cargarán los productos dinámicamente -->
             </div>
         </div>
+
+
     </main>
     <footer class="footer">
         <div class="footer__tittle">
@@ -136,6 +86,7 @@
             </div>
     </footer>
     <script src="../assets/js/components/header.js"></script>
+    <script src="../assets/js/functions/load-games.js"></script>
 </body>
 
 </html>

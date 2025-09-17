@@ -7,8 +7,35 @@ body main .Compra {
   background-color: var(--boxsecond);
   backdrop-filter: blur(10px);
 }
+body main .Compra h2 {
+  margin-bottom: 1.5rem;
+}
 body main .Compra .comprar {
   padding: 0.7rem;
+}
+body main .Compra .Compra_flex {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+body main .Compra .Compra_categoria,
+body main .Compra .Compra_plataforma,
+body main .Compra .Compra_cantidad {
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+body main .Compra .Compra_categoria strong,
+body main .Compra .Compra_plataforma strong,
+body main .Compra .Compra_cantidad strong {
+  display: block;
+  font-size: 23px;
+  font-weight: 700;
+}
+body main .Compra .Compra_cantidad {
+  margin-bottom: 2rem;
+}
+body main .Compra .Compra_description {
+  line-height: 1.6;
 }
 body main .Compra p {
   margin-bottom: 2rem;

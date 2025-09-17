@@ -1,6 +1,7 @@
 .main-container {
     max-width: 1000px;
-    margin: 8rem auto 6rem auto; /* Aumentado el margen inferior */
+    margin: 8rem auto 6rem auto;
+    /* Aumentado el margen inferior */
     padding: 1rem;
     font-family: 'Sansation', sans-serif;
     width: 100%;
@@ -45,6 +46,7 @@
 }
 
 .account-layout {
+    max-height: 597px; /* Altura fija, cambiar si hay problemas de tamaño*/
     display: block;
 }
 
@@ -53,10 +55,12 @@
     /* Forzar display flex */
     flex-direction: row;
 }
+
 #logged-in .border {
-    height: 33rem;
+    height: 37.2rem;
     border: 1px solid var(--neon);
 }
+
 @media (max-width: 768px) {
     #logged-in {
         flex-direction: column;
@@ -66,6 +70,7 @@
 /* Estilos para el menú lateral */
 .sidebar-menu {
     width: 280px;
+    height: 100%;
     background-color: var(--second-background);
     border-right: 1px solid var(--neon);
     flex-shrink: 0;
@@ -514,32 +519,34 @@ pre {
         padding: 10px 12px;
         min-height: 50px;
     }
-    
+
     .data-item label {
         font-size: 0.75rem;
     }
-    
+
     .data-item span {
         font-size: 0.85rem;
     }
-    
+
     .user-actions .btn {
         padding: 8px 20px;
         font-size: 0.85rem;
     }
-    
+
     .user-details-section {
         padding: 15px;
     }
-    
+
     .account-content {
         max-height: 60vh;
     }
 }
+
 .create-admin-user {
     padding-bottom: 0px;
     margin-bottom: 0px;
 }
+
 .create-admin-user p {
     margin-bottom: 1rem;
 }
