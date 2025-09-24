@@ -1,4 +1,4 @@
-body main .Compra {
+body .main_compra .Compra {
   display: grid;
   margin-top: 10rem;
   grid-template-columns: repeat(2, 1fr);
@@ -7,51 +7,66 @@ body main .Compra {
   background-color: var(--boxsecond);
   backdrop-filter: blur(10px);
 }
-body main .Compra h2 {
+body .main_compra .Compra h2 {
   margin-bottom: 1.5rem;
 }
-body main .Compra .comprar {
+body .main_compra .Compra .comprar {
   padding: 0.7rem;
 }
-body main .Compra .Compra_flex {
-  display: flex;
-  flex-direction: row;
+body .main_compra .Compra .Compra_flex {
   gap: 2rem;
 }
-body main .Compra .Compra_categoria,
-body main .Compra .Compra_plataforma,
-body main .Compra .Compra_cantidad {
+body .main_compra .Compra .Compra_flex_info {
+  display: flex;
+  flex-wrap: wrap;
+}
+body .main_compra .Compra .Compra_categoria,
+body .main_compra .Compra .Compra_plataforma,
+body .main_compra .Compra .Compra_cantidad {
+  margin: 0rem 1rem 0rem 0rem;
   font-size: 1.2rem;
   margin-bottom: 1.2rem;
 }
-body main .Compra .Compra_categoria strong,
-body main .Compra .Compra_plataforma strong,
-body main .Compra .Compra_cantidad strong {
+body .main_compra .Compra .Compra_categoria strong,
+body .main_compra .Compra .Compra_plataforma strong,
+body .main_compra .Compra .Compra_cantidad strong {
   display: block;
   font-size: 23px;
   font-weight: 700;
 }
-body main .Compra .Compra_cantidad {
+body .main_compra .Compra .Compra_cantidad {
   margin-bottom: 2rem;
 }
-body main .Compra .Compra_description {
-  line-height: 1.6;
-}
-body main .Compra p {
+body .main_compra .Compra p {
   margin-bottom: 2rem;
 }
-body main .Compra div img {
+body .main_compra .Compra .image-wrapper {
+  display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   border-radius: 10px;
+  overflow: hidden;
+}
+body .main_compra .Compra .image-wrapper img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: center;
+}
+@media (max-width: 900px) {
+  body .main_compra .Compra {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
 }
 @media (max-width: 768px) {
-  body main .Compra {
+  body .main_compra .Compra {
     top: 4rem;
   }
 }
 @media (max-width: 758px) {
-  body main .Compra {
+  body .main_compra .Compra {
     margin-top: 18rem;
   }
 }

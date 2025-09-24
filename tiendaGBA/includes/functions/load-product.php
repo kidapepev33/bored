@@ -31,22 +31,22 @@ try {
 }
 
 // Generar el HTML del producto
-echo '<div>';
+echo '<div  class="image-wrapper">';
 echo '<img src="../' . htmlspecialchars($producto['img']) . '" alt="' . htmlspecialchars($producto['name']) . '" class="Compra__img">';
 echo '</div>';
 
 echo '<div>';
 echo '<h1>' . htmlspecialchars($producto['name']) . '</h1>';
-echo '<h2>Precio: <span>$' . number_format($producto['precio'], 2) . '</span></h2>';
+echo '<h2>Precio: <span>₡' . number_format($producto['precio'], 2) . '</span></h2>';
 echo '<div class="Compra_flex">';
 echo '<div class="Compra_flex_info">';
 echo '<p class="Compra_categoria" ><strong>Categoría:</strong> ' . htmlspecialchars($producto['category']) . '</p>';
 echo '<p class="Compra_plataforma" ><strong>Plataforma:</strong> ' . htmlspecialchars($producto['plataform']) . '</p>';
-echo '<p class="Compra_cantidad" ><strong>Stock disponible:</strong> ' . htmlspecialchars($producto['stock']) . ' unidades</p>';
+echo '<p class="Compra_cantidad" ><strong>Disponible:</strong> ' . htmlspecialchars($producto['stock']) . ' unidades</p>';
 echo '</div>';
 echo '<p class="Compra_description" >' . htmlspecialchars($producto['description']) . '</p>';
 echo '</div>';
-echo '<a href="carrito.html?id=' . $producto['product_id'] . '" class="button comprar">Comprar</a>';
+echo '<a href="carrito.html?id=' . $producto['product_id'] . '" class="button comprar">Añadir al carrito</a>';
 echo '</div>';
 
 // Cerrar la conexión

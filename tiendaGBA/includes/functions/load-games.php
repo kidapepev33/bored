@@ -32,7 +32,7 @@ if (!empty($productos)) {
         echo '<h3 class="games__tittle">';
         echo htmlspecialchars($producto['name']);
         echo '</h3>';
-        echo '<p class="games__text">Precio $' . number_format($producto['precio'], 2) . '</p>';
+        echo '<p class="games__text">Precio ₡' . number_format($producto['precio'], 2) . '</p>';
         echo '</div>';
         echo '</a>';
     }

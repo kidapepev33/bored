@@ -1,0 +1,57 @@
+main {
+    .carrito {
+        margin-top: 8rem;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+
+        .box {
+            margin: 0% 5%;
+            padding: 0rem 2rem 2rem 2rem;
+            background-color: var(--boxsecond);
+            backdrop-filter: blur(10px);
+
+            .carrito__title {
+                text-align: center;
+                margin: 1rem;
+                font-size: 1.7rem;
+            }
+            .carrito__container {
+                .carrito__item {
+                    display: flex;
+                    gap: 1rem;
+                }
+                .carrito__item-info {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 1rem;
+                }
+                .carrito__item-quantity {
+                    label{
+                        font-size: 1.2rem;
+                    }
+                    input{
+                        margin-bottom: 1rem;
+                    }
+                }
+                .button{
+                    font-size: 1.2rem;
+                    font-weight: 700;;
+                }
+            }
+            .carrito__summary {
+
+                h3 {
+                    text-align: center;
+                    margin: 1rem 0rem;
+                    font-size: 1.7rem;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .carrito {
+            margin-top: 12rem;
+        }
+    }
+}

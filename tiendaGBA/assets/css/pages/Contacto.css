@@ -3,9 +3,7 @@
   font-size: 2rem;
   margin-bottom: 20px;
 }
-.Contacto label[for="nombre"] {
-  width: 180px;
-}
+
 .Contacto label {
   width: 130px;
   margin: 0px;

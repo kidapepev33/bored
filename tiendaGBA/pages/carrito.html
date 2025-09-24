@@ -9,28 +9,47 @@
     <title>Document</title>
 </head>
 
-<body class="roboto background-image" >
+<body class="roboto background-image">
     <header id="header-container"></header>
 
 
 
     <main>
 
-        <div class="box Compra">
+        <section class="carrito">
+            <div class="box">
+                <h2 class="carrito__title">Carrito de Compras</h2>
+                <div class="carrito__container">
 
-            <div>
-                <img src="../assets/images/products/Elden ring.jpg" alt="Elden ring" class="Compra__img">
+                    <div class="carrito__item">
+                        <img src="../assets/images/products/descarga (1).jpg" alt="Producto 1"
+                            class="carrito__item-image">
+                        <div class="carrito__item-details">
+                            <div class="carrito__item-info">
+                                <h3 class="carrito__item-name">Producto 1</h3>
+                                <div>
+                                    <h3 class="carrito__item-price">Precio: <span>₡</span></h3>
+                                </div>
+                            </div>
+                            <div class="carrito__item-quantity">
+                                <label for="quantity-1">Cantidad:</label>
+                                <input type="number" id="quantity-1" name="quantity-1" value="1" min="1">
+                            </div>
+                            <button class="button">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div>
-                <h1>Compra</h1>
-                <h2>Precio: <span></span></h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit tenetur assumenda porro veniam sequi cumque atque itaque cupiditate! Ex quam recusandae quisquam sed numquam? Molestiae incidunt in deleniti provident totam!</p>
-                <a href="pagar.html" class="button comprar">Comprar</a>
+            <div class="box">
+                <div class="carrito__summary">
+                    <h3>Resumen del Pedido</h3>
+                    <p>Total: $55.00</p>
+                    <button class="carrito__checkout-button">Proceder al Pago</button>
+                </div>
+
             </div>
-
-        </div>
-
+        </section>
     </main>
 
     <footer class="footer footer__fix">

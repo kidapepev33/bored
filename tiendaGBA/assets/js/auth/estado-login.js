@@ -1,45 +1,45 @@
 // assets/js/auth/estado-login.js - Versión completa con roles
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const loadingElement = document.getElementById('loading');
     const loggedInElement = document.getElementById('logged-in');
     const notLoggedElement = document.getElementById('not-logged');
     const userNameElement = document.getElementById('user-name');
     const userEmailElement = document.getElementById('user-email');
     const userAvatarElement = document.getElementById('user-avatar');
-    
+
     checkLoginStatus();
     setupMenuEventListeners();
-    
+
     async function checkLoginStatus() {
         loggedInElement.style.display = 'none';
         notLoggedElement.style.display = 'none';
-        
+
         try {
             const response = await fetch('/bored/tiendaGBA/includes/auth/check-session.php');
             const data = await response.json();
-            
+
             loadingElement.style.display = 'none';
             console.log('Estado de sesión:', data);
-            
+
             if (data.isLoggedIn) {
                 console.log('Usuario logueado, mostrando UI');
                 loggedInElement.style.display = 'flex';
-                
+
                 // Mostrar información básica del usuario
                 userNameElement.textContent = data.user.name;
                 userEmailElement.textContent = data.user.email;
-                
+
                 if (userAvatarElement) {
                     const initial = data.user.name.charAt(0).toUpperCase();
                     userAvatarElement.textContent = initial;
                 }
-                
+
                 // Configurar menú según el rol del usuario
                 setupMenuByRole(data.user.role);
-                
+
                 // Cargar datos completos del usuario para la sección de datos personales
                 await loadUserData();
-                
+
             } else {
                 // Usuario no logueado
                 notLoggedElement.style.display = 'block';
@@ -50,10 +50,10 @@ document.addEventListener('DOMContentLoaded', function() {
             notLoggedElement.style.display = 'block';
         }
     }
-    
+
     function setupMenuByRole(userRole) {
         const menuSection = document.querySelector('.menu-section ul');
-        
+
         if (userRole === 'admin') {
             // Menú para administradores
             menuSection.innerHTML = `
@@ -72,12 +72,12 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
         }
     }
-    
+
     async function loadUserData() {
         try {
             const response = await fetch('/bored/tiendaGBA/includes/functions/get-user-data.php');
             const data = await response.json();
-            
+
             if (data.success) {
                 displayUserData(data.user);
             } else {
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error al cargar datos del usuario:', error);
         }
     }
-    
+
     function displayUserData(userData) {
         const datosPersonalesContent = document.getElementById('datos-personales-content');
         if (datosPersonalesContent) {
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
         }
     }
-    
+
     function formatGender(gender) {
         const genders = {
             'masculino': 'Masculino',
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         return genders[gender] || 'No especificado';
     }
-    
+
     function formatRole(role) {
         const roles = {
             'client': 'Cliente',
@@ -150,35 +150,35 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         return roles[role] || 'Usuario';
     }
-    
+
     // Configurar navegación del menú
     function setupMenuEventListeners() {
         // Configurar cerrar sesión
         const logoutLink = document.getElementById('logout-link');
         if (logoutLink) {
-            logoutLink.addEventListener('click', function(e) {
+            logoutLink.addEventListener('click', function (e) {
                 e.preventDefault();
                 if (confirm('¿Estás seguro de que quieres cerrar sesión?')) {
                     window.location.href = '/bored/tiendaGBA/includes/auth/logout.php';
                 }
             });
         }
-        
+
         // Esta función se ejecutará después de que se configure el menú
         // por eso usamos un setTimeout para asegurar que los elementos existan
         setTimeout(() => {
             const menuLinks = document.querySelectorAll('.account-nav ul li a');
             menuLinks.forEach(link => {
                 if (link.id !== 'logout-link') {
-                    link.addEventListener('click', function(e) {
+                    link.addEventListener('click', function (e) {
                         e.preventDefault();
-                        
+
                         // Eliminar clase activa de todos los links
                         menuLinks.forEach(l => l.parentElement.classList.remove('active'));
-                        
+
                         // Añadir clase activa al link actual
                         this.parentElement.classList.add('active');
-                        
+
                         // Obtener la sección a mostrar
                         const targetId = this.getAttribute('href').substring(1);
                         showSection(targetId);
@@ -187,28 +187,142 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }, 100);
     }
-    
+
     // Mostrar sección de contenido
+    function setupMenuEventListeners() {
+        // Configurar cerrar sesión
+        const logoutLink = document.getElementById('logout-link');
+        if (logoutLink) {
+            logoutLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                if (confirm('¿Estás seguro de que quieres cerrar sesión?')) {
+                    window.location.href = '/bored/tiendaGBA/includes/auth/logout.php';
+                }
+            });
+        }
+
+        // Esta función se ejecutará después de que se configure el menú
+        // por eso usamos un setTimeout para asegurar que los elementos existan
+        setTimeout(() => {
+            const menuLinks = document.querySelectorAll('.account-nav ul li a');
+            menuLinks.forEach(link => {
+                if (link.id !== 'logout-link') {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+
+                        // Eliminar clase activa de todos los links
+                        menuLinks.forEach(l => l.parentElement.classList.remove('active'));
+
+                        // Añadir clase activa al link actual
+                        this.parentElement.classList.add('active');
+
+                        // Obtener la sección a mostrar
+                        const targetId = this.getAttribute('href').substring(1);
+                        showSection(targetId);
+                    });
+                }
+            });
+        }, 100);
+    }
+
+    // FUNCIÓN CORREGIDA: Mostrar sección de contenido
     function showSection(sectionId) {
+        console.log('Mostrando sección:', sectionId); // Debug
+
         // Ocultar todas las secciones
         const contentSections = document.querySelectorAll('.content-section');
         contentSections.forEach(section => {
             section.classList.remove('active');
         });
-        
-        // Mostrar la sección solicitada si existe
-        let targetSection;
-        if (sectionId === 'create-user-account') {
-            targetSection = document.getElementById('crear-usuario-admin-content');
-        } else {
-            targetSection = document.getElementById(sectionId + '-content');
-        }
-        
+
+        // Buscar la sección objetivo
+        const targetSection = document.getElementById(sectionId + '-content');
+
         if (targetSection) {
+            console.log('Sección encontrada:', targetSection.id); // Debug
             targetSection.classList.add('active');
+
+            // Cargar contenido dinámico para ciertas secciones
+            loadSectionContent(sectionId, targetSection);
+        } else {
+            console.error('Sección no encontrada:', sectionId + '-content'); // Debug
         }
     }
-    
+
+    // FUNCIÓN CORREGIDA: Cargar contenido dinámico
+    async function loadSectionContent(sectionId, targetSection) {
+        console.log('Cargando contenido para:', sectionId); // Debug
+
+        // Solo cargar para secciones específicas y si no tiene contenido dinámico ya cargado
+        if (sectionId === 'crear-usuario-admin' && !targetSection.querySelector('#create-user')) {
+            console.log('Cargando formulario de crear usuario...'); // Debug
+
+            try {
+                const response = await fetch('/bored/tiendaGBA/includes/functions/get-crear-usuario-form.php');
+                console.log('Respuesta del servidor:', response.status); // Debug
+
+                const data = await response.json();
+                console.log('Datos recibidos:', data); // Debug
+
+                if (data.success) {
+                    // Reemplazar todo el contenido de la sección
+                    targetSection.innerHTML = '<h2>Crear Cuenta</h2>' + data.html;
+                    console.log('Formulario cargado exitosamente'); // Debug
+
+                    // Configurar el event listener para el formulario después de cargarlo
+                    setupCreateUserForm();
+                } else {
+                    console.error('Error del servidor:', data.message);
+                    targetSection.innerHTML = '<h2>Crear Cuenta</h2><p>Error: ' + data.message + '</p>';
+                }
+            } catch (error) {
+                console.error('Error cargando formulario:', error);
+                targetSection.innerHTML = '<h2>Crear Cuenta</h2><p>Error al cargar el formulario: ' + error.message + '</p>';
+            }
+        }
+    }
+
+    // NUEVA FUNCIÓN: Configurar el formulario de crear usuario
+    function setupCreateUserForm() {
+        const createUserForm = document.getElementById('create-user');
+        if (createUserForm && !createUserForm.hasEventListener) {
+            createUserForm.hasEventListener = true; // Evitar múltiples listeners
+
+            createUserForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                console.log('Formulario enviado'); // Debug
+
+                const formData = new FormData(this);
+                const messageDiv = document.getElementById('create-user-message');
+
+                try {
+                    const response = await fetch('/bored/tiendaGBA/includes/auth/register.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        messageDiv.textContent = 'Usuario creado exitosamente';
+                        messageDiv.className = 'register_tittle success';
+                        messageDiv.classList.remove('hidden');
+                        this.reset(); // Limpiar formulario
+                    } else {
+                        messageDiv.textContent = result.message || 'Error al crear usuario';
+                        messageDiv.className = 'register_tittle error';
+                        messageDiv.classList.remove('hidden');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    messageDiv.textContent = 'Error de conexión';
+                    messageDiv.className = 'register_tittle error';
+                    messageDiv.classList.remove('hidden');
+                }
+            });
+        }
+    }
+
     // Dar formato al título de la sección
     function formatSectionTitle(sectionId) {
         const titles = {
@@ -216,7 +330,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'datos-personales': 'Datos Personales',
             'historial-pedidos': 'Historial de Pedidos',
             'wishlist': 'Lista de Deseos',
-            
+
             // Secciones de admin
             'crear-usuario-admin': 'Crear Usuario Administrador',
             'gestionar-productos': 'Gestionar Productos',
@@ -225,23 +339,40 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         return titles[sectionId] || 'Sección';
     }
-    
+
+    // Dar formato al título de la sección
+    function formatSectionTitle(sectionId) {
+        const titles = {
+            // Secciones de cliente
+            'datos-personales': 'Datos Personales',
+            'historial-pedidos': 'Historial de Pedidos',
+            'wishlist': 'Lista de Deseos',
+
+            // Secciones de admin
+            'crear-usuario-admin': 'Crear Usuario Administrador',
+            'gestionar-productos': 'Gestionar Productos',
+            'ordenes-sistema': 'Todas las Órdenes',
+            'configuracion': 'Configuración del Sistema'
+        };
+        return titles[sectionId] || 'Sección';
+    }
+
     // Funciones globales
-    window.goToHome = function() {
+    window.goToHome = function () {
         window.location.href = '/bored/tiendaGBA/pages/index.html';
     };
-    
-    window.goToLogin = function() {
+
+    window.goToLogin = function () {
         window.location.href = '/bored/tiendaGBA/pages/auth/login.html';
     };
-    
-    window.logout = function() {
+
+    window.logout = function () {
         if (confirm('¿Estás seguro de que quieres cerrar sesión?')) {
             window.location.href = '/bored/tiendaGBA/includes/auth/logout.php';
         }
     };
-    
-    window.editUserData = function() {
+
+    window.editUserData = function () {
         alert('Función de edición en desarrollo. Por ahora los datos se pueden cambiar desde el registro.');
     };
 });

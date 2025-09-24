@@ -14,6 +14,7 @@
 }
 
 /*Gobales*/
+
 * {
     color: var(--white);
 }
@@ -40,7 +41,6 @@ body {
     }
 }
 
-body,
 h1,
 h2,
 h3,
@@ -72,10 +72,22 @@ a {
 a {
     text-decoration: none;
 }
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
 
+main{
+    flex: 1; /* Esto expande el main para llenar el espacio disponible */
+}
+
+footer {
+    margin-top: auto; /* Empuja el footer al fondo */
+}
 /*Utilidades*/
 .footer__fix {
-    position: absolute;
     bottom: 0px;
     width: 100%;
 }
@@ -230,6 +242,7 @@ select:invalid:not(:placeholder-shown) {
 }
 
 .button {
+    border: none;
     text-decoration: none;
     background-color: var(--second);
     padding: 10px;

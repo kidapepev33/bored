@@ -1,6 +1,5 @@
 .adjust-body {
     min-height: 100vh;
-    padding-bottom: 4rem;
 }
 
 .register-main {
@@ -18,10 +17,7 @@
     margin-right: 15px;
     display: inline-block;
 }
-#register-form label[for="register-lastname"] {
-    margin: 0px;
-    width: 100px;
-}
+
 #create-user label {
     width: 100%;
     max-width: 110px;
