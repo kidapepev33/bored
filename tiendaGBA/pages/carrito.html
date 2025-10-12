@@ -5,51 +5,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/_extend.css">
-
-    <title>Document</title>
+    <title>Carrito de Compras</title>
 </head>
 
 <body class="roboto background-image">
     <header id="header-container"></header>
 
-
-
     <main>
+        <!-- Mensaje si no está logueado -->
+        <section id="login-required" class="carrito" style="display: none;">
+            <div class="box">
+                <div style="text-align: center; padding: 3rem;">
+                    <h2>Inicia sesión para ver tu carrito</h2>
+                    <p style="margin: 1rem 0;">Necesitas tener una cuenta para agregar productos al carrito</p>
+                    <button class="button" onclick="window.location.href='auth/login.html'">Iniciar Sesión</button>
+                    <button class="button" onclick="window.location.href='auth/register.html'" style="margin-left: 1rem;">Registrarse</button>
+                </div>
+            </div>
+        </section>
 
-        <section class="carrito">
+        <!-- Carrito (se muestra solo si está logueado) -->
+        <section id="carrito-section" class="carrito" style="display: none;">
             <div class="box">
                 <h2 class="carrito__title">Carrito de Compras</h2>
-                <div class="carrito__container">
-
-                    <div class="carrito__item">
-                        <img src="../assets/images/products/descarga (1).jpg" alt="Producto 1"
-                            class="carrito__item-image">
-                        <div class="carrito__item-details">
-                            <div class="carrito__item-info">
-                                <h3 class="carrito__item-name">Producto 1</h3>
-                                <div>
-                                    <h3 class="carrito__item-price">Precio: <span>₡</span></h3>
-                                </div>
-                            </div>
-                            <div class="carrito__item-quantity">
-                                <label for="quantity-1">Cantidad:</label>
-                                <input type="number" id="quantity-1" name="quantity-1" value="1" min="1">
-                            </div>
-                            <button class="button">Eliminar</button>
-                        </div>
-                    </div>
+                <div id="carrito-container" class="carrito__container">
+                    <!-- Los productos se cargarán dinámicamente aquí -->
+                </div>
+                <div id="carrito-vacio" style="display: none; text-align: center; padding: 2rem;">
+                    <p>Tu carrito está vacío</p>
+                    <button class="button" onclick="window.location.href='index.html'">Ver Productos</button>
                 </div>
             </div>
 
             <div class="box">
                 <div class="carrito__summary">
                     <h3>Resumen del Pedido</h3>
-                    <p>Total: $55.00</p>
-                    <button class="carrito__checkout-button">Proceder al Pago</button>
+                    <div id="carrito-resumen">
+                        <p>Subtotal: ₡<span id="subtotal">0</span></p>
+                        <p>Total: ₡<span id="total">0</span></p>
+                    </div>
+                    <button class="carrito__checkout-button" id="btn-checkout">Proceder al Pago</button>
+                    <button onclick="vaciarCarrito()">Vaciar Carrito</button>
                 </div>
-
             </div>
         </section>
+
+        <!-- Loading -->
+        <div id="loading" style="text-align: center; padding: 3rem;">
+            <p>Cargando...</p>
+        </div>
     </main>
 
     <footer class="footer footer__fix">
@@ -104,11 +108,12 @@
                     <p class="footer__text">Todos los derechos reservados Deikel Daniel CTP NATANIEL ARIAS
                         MURILLO(●'◡'●)
                     </p>
-
                 </div>
             </div>
     </footer>
+
     <script src="../assets/js/components/header.js"></script>
+    <script src="../assets/js/functions/carrito.js"></script>
 </body>
 
 </html>

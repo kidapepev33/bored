@@ -17,6 +17,13 @@ main .carrito .box .carrito__title {
 main .carrito .box .carrito__container .carrito__item {
   display: flex;
   gap: 1rem;
+  object-fit: contain;
+  margin-bottom: 2rem;
+}
+main .carrito .box .carrito__container .carrito__item .carrito__item-image {
+  width: auto;
+  height: 190px;
+  object-fit: contain;
 }
 main .carrito .box .carrito__container .carrito__item-info {
   display: flex;

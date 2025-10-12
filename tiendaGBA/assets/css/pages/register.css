@@ -18,14 +18,14 @@
     display: inline-block;
 }
 
-#create-user label {
+label {
     width: 100%;
     max-width: 110px;
     text-align: left;
     margin-right: 15px;
     display: inline-block;
 }
-#create-user  .form-select {
+.form-select {
     width: 100%;
     min-width: 250px;
 }

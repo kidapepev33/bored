@@ -1,11 +1,12 @@
 .main-container {
+    height: auto;
+    width: 100%;
     max-width: 1000px;
     margin: 8rem auto 6rem auto;
-    /* Aumentado el margen inferior */
     padding: 1rem;
     font-family: 'Sansation', sans-serif;
     width: 100%;
-    padding-bottom: 5rem;
+    padding-bottom: 2rem;
 }
 
 
@@ -15,7 +16,6 @@
         padding: 0.5rem;
     }
 
-    /* Ajustes responsive para el menú lateral */
     .account-content {
         padding: 1rem;
     }
@@ -38,21 +38,19 @@
     color: var(--neon);
 }
 
-/* Nuevo diseño con menú lateral */
 .account-wrapper {
     background-color: var(--principal);
     border: 1px solid var(--neon);
     border-radius: 10px;
+    height: fit-content;
 }
 
 .account-layout {
-    max-height: 597px; /* Altura fija, cambiar si hay problemas de tamaño*/
     display: block;
 }
 
 #logged-in {
     display: flex;
-    /* Forzar display flex */
     flex-direction: row;
 }
 
@@ -67,7 +65,6 @@
     }
 }
 
-/* Estilos para el menú lateral */
 .sidebar-menu {
     width: 280px;
     height: 100%;
@@ -80,7 +77,6 @@
     margin-right: 1rem;
 }
 
-/* Información del perfil */
 .user-profile {
     padding: 1.5rem;
     border-bottom: 1px solid rgba(99, 227, 194, 0.2);
@@ -152,7 +148,6 @@
     padding: 0.75rem 1.5rem;
     text-decoration: none;
     color: var(--white) !important;
-    /* Forzar color */
     font-size: 0.95rem;
     transition: all 0.3s ease;
     visibility: visible !important;
@@ -163,20 +158,17 @@
     color: var(--neon);
 }
 
-/* Menú activo */
 .account-nav ul li.active a {
     background-color: rgba(99, 227, 194, 0.15);
     color: var(--neon);
     border-left: 3px solid var(--neon);
 }
 
-/* Íconos del menú */
 .menu-icon {
     margin-right: 10px;
     font-size: 1.2rem;
 }
 
-/* Botón de cerrar sesión */
 #logout-link {
     color: #ff6b6b !important;
 }
@@ -185,13 +177,11 @@
     background-color: rgba(255, 107, 107, 0.1);
 }
 
-/* Contenido principal */
 .account-content {
     flex-grow: 1;
     padding: 2rem;
     overflow-y: auto;
     min-height: 400px;
-    /* Altura mínima para asegurar suficiente espacio */
 }
 
 .content-section {
@@ -209,14 +199,6 @@
     padding-bottom: 0.5rem;
 }
 
-.user-details-section {
-    background-color: var(--second-background);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-/* Estilos para usuarios logueados */
 #loading {
     text-align: center;
     padding: 20px;
@@ -277,7 +259,6 @@
     margin: 5px 0;
 }
 
-/* Estilos para usuarios no logueados */
 .not-logged {
     text-align: center;
     padding: 30px;
@@ -297,7 +278,6 @@
     line-height: 1.6;
 }
 
-/* Estilos para botones */
 .btn {
     padding: 10px 20px;
     border: none;
@@ -412,7 +392,6 @@ pre {
     overflow-x: auto;
 }
 
-/* Estilos para la visualización de datos del usuario */
 .user-data-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -480,28 +459,26 @@ pre {
     transform: translateY(-1px);
 }
 
-/* Mejorar el diseño de la sección de datos personales */
 .user-details-section {
+    display: inline-block;
+    max-width: 610px;
+    width: 100%;
     background-color: var(--second-background);
     border-radius: 10px;
     padding: 20px;
-    margin-bottom: 2rem;
     border: 1px solid rgba(99, 227, 194, 0.3);
     height: auto;
     min-height: auto;
     overflow: visible;
 }
 
-/* Asegurar que el contenido principal tenga suficiente espacio y scroll */
 .account-content {
     flex-grow: 1;
     padding: 1.5rem;
     overflow-y: auto;
     height: auto;
-    max-height: 70vh;
 }
 
-/* Asegurar que las secciones de contenido tengan altura automática */
 .content-section {
     height: auto;
     min-height: auto;
@@ -513,7 +490,6 @@ pre {
     height: auto;
 }
 
-/* Responsive para pantallas pequeñas */
 @media (max-width: 600px) {
     .data-item {
         padding: 10px 12px;
@@ -549,4 +525,21 @@ pre {
 
 .create-admin-user p {
     margin-bottom: 1rem;
+}
+
+input[type="file"]::file-selector-button {
+    background-color: var(--button);
+    border: 1px solid var(--menuhover);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: var(--neon2);
+    border-color: var(--neon2);
+    box-shadow: 0 0 10px rgba(255, 0, 115, 0.5);
 }

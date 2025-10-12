@@ -1,13 +1,9 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Función para obtener parámetros de la URL
-    function getUrlParameter(name) {
-        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-        var results = regex.exec(location.search);
-        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-    }
+// load-product.js
 
-    // Función para cargar el producto
+// Variable para controlar si ya preguntamos sobre ir al carrito
+let yaPreguntaronCarrito = false;
+
+document.addEventListener('DOMContentLoaded', function() {
     function loadProduct() {
         const productId = getUrlParameter('id');
         
@@ -39,6 +35,66 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
-    // Cargar producto al iniciar
     loadProduct();
 });
+
+async function agregarAlCarrito(productId, maxStock) {
+    const cantidadInput = document.getElementById('cantidad-producto');
+    const cantidad = cantidadInput ? parseInt(cantidadInput.value) : 1;
+    
+    if (cantidad < 1) {
+        showToast('La cantidad debe ser al menos 1', 'error');
+        return;
+    }
+
+    if (maxStock && cantidad > maxStock) {
+        showToast(`Solo hay ${maxStock} unidades disponibles`, 'warning');
+        return;
+    }
+
+    try {
+        const response = await fetch('../includes/functions/carrito.php', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                action: 'agregar',
+                product_id: productId,
+                cantidad: cantidad
+            })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            showToast('✓ ' + data.mensaje, 'success');
+            
+            // Solo preguntar la PRIMERA VEZ
+            if (!yaPreguntaronCarrito) {
+                yaPreguntaronCarrito = true;
+                const irAlCarrito = await showConfirm('¿Quieres ir al carrito?');
+                if (irAlCarrito) {
+                    window.location.href = 'carrito.html';
+                    return;
+                }
+            }
+            
+            // Resetear cantidad a 1
+            if (cantidadInput) {
+                cantidadInput.value = 1;
+            }
+        } else if (data.requiere_login) {
+            const irAlLogin = await showConfirm('Debes iniciar sesión para agregar productos. ¿Quieres ir al login?');
+            if (irAlLogin) {
+                window.location.href = 'login.html';
+            }
+        } else {
+            showToast('⚠ ' + data.mensaje, 'warning');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        showToast('Error al agregar producto al carrito', 'error');
+    }
+}

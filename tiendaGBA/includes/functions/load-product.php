@@ -43,10 +43,11 @@ echo '<div class="Compra_flex_info">';
 echo '<p class="Compra_categoria" ><strong>Categoría:</strong> ' . htmlspecialchars($producto['category']) . '</p>';
 echo '<p class="Compra_plataforma" ><strong>Plataforma:</strong> ' . htmlspecialchars($producto['plataform']) . '</p>';
 echo '<p class="Compra_cantidad" ><strong>Disponible:</strong> ' . htmlspecialchars($producto['stock']) . ' unidades</p>';
+
 echo '</div>';
 echo '<p class="Compra_description" >' . htmlspecialchars($producto['description']) . '</p>';
-echo '</div>';
-echo '<a href="carrito.html?id=' . $producto['product_id'] . '" class="button comprar">Añadir al carrito</a>';
+echo '<div class="Compra_acciones">';
+echo '<button onclick="agregarAlCarrito(' . $producto['product_id'] . ', ' . $producto['stock'] . ')" class="button comprar">Añadir al carrito</button>';
 echo '</div>';
 
 // Cerrar la conexión

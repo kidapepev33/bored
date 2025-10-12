@@ -244,13 +244,29 @@ select:invalid:not(:placeholder-shown) {
 .button {
     border: none;
     text-decoration: none;
-    background-color: var(--second);
+    background-color: var(--button);
     padding: 10px;
-    border-radius: 20px;
+    border-radius: 5px;
+    font-size: 1rem;
 }
+
 body .form-group-inline {
   width: 100%;
   display: flex;
   gap: 10px;
   margin-bottom: 0px;
+}
+select.form-select option[disabled] {
+    background-color: var(--second-background) !important;
+    color: var(--menuhover) !important;
+}
+select.form-select option[disabled]:focus{
+    background-color: var(--second-background) !important;
+    color: var(--menuhover) !important;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

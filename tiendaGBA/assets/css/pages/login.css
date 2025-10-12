@@ -11,9 +11,6 @@
     margin-bottom: 20px;
 }
 
-.form-group label[for="login-email"]{
-    margin-right: 64px;
-}
 @media (max-width: 600px) {
     .form-group label[for="login-email"]{
         margin-right: 50px;
