@@ -76,10 +76,8 @@ function mostrarProductos(productos) {
                 <div class="carrito__item-details">
                     <div class="carrito__item-info">
                         <h3 class="carrito__item-name">${producto.name}</h3>
-                       <div>
-                            <h3 class="carrito__item-price">Precio: <span>₡${Number(producto.precio).toLocaleString()}</span></h3>
-                        </div>
-                        <p style="font-size: 0.9rem; color: #999;">Plataforma: ${producto.plataform || ''}</p>
+                        <h3 class="carrito__item-price">Precio: <span>₡${Number(producto.precio).toLocaleString()}</span></h3>
+                        <p>Plataforma: <span>${producto.plataform || ''}</span></p>
                     </div>
                     <div class="carrito__item-quantity">
                         <label for="quantity-${producto.product_id}">Cantidad:</label>

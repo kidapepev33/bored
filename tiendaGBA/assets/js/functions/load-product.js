@@ -26,12 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (productContainer) {
                     productContainer.innerHTML = data;
                 }
-            })
-            .catch(error => {
-                const productContainer = document.getElementById('product-container');
-                if (productContainer) {
-                    productContainer.innerHTML = '<p>Error al cargar el producto. Por favor, recarga la página.</p>';
-                }
             });
     }
 
@@ -85,10 +79,14 @@ async function agregarAlCarrito(productId, maxStock) {
             if (cantidadInput) {
                 cantidadInput.value = 1;
             }
-        } else if (data.requiere_login) {
+        } else if (data.requiere_login && !yaPreguntaronCarrito) {
+            yaPreguntaronCarrito = true;
             const irAlLogin = await showConfirm('Debes iniciar sesión para agregar productos. ¿Quieres ir al login?');
+            if (!irAlLogin){
+                yaPreguntaronCarrito = false; // Permitir preguntar de nuevo en el futuro
+            }
             if (irAlLogin) {
-                window.location.href = 'login.html';
+                window.location.href = 'auth/login.html';
             }
         } else {
             showToast('⚠ ' + data.mensaje, 'warning');

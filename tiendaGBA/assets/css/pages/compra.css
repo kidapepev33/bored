@@ -1,6 +1,6 @@
 body .main_compra .Compra {
   display: grid;
-  margin-top: 10rem;
+  margin-top: 12rem;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   padding: 2rem 2rem;
@@ -63,10 +63,5 @@ body .main_compra .Compra .image-wrapper img {
 @media (max-width: 768px) {
   body .main_compra .Compra {
     top: 4rem;
-  }
-}
-@media (max-width: 758px) {
-  body .main_compra .Compra {
-    margin-top: 18rem;
   }
 }

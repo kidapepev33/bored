@@ -1,8 +1,7 @@
-/* Contenedor de notificaciones */
 #toast-container {
     position: fixed;
     top: 20px;
-    right: 20px;
+    right: 10px;
     z-index: 9999;
     display: flex;
     flex-direction: column;
@@ -16,14 +15,16 @@
 
 /* Toast notification simple */
 .toast-notification {
-    background: white;
+    background: var(--menu-background);
+    color: white;
     padding: 15px 20px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    min-width: 300px;
+    min-width: 200px;
     transform: translateX(400px);
     transition: all 0.3s ease;
     opacity: 0;
+    font-size: 0.7rem;
 }
 
 .toast-notification.show {
@@ -45,15 +46,15 @@
 
 /* Toast para confirmación */
 .toast-confirm {
-    background: white;
+    background: var(--menu-background);
+    color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     min-width: 350px;
     transform: translateX(450px);
     transition: all 0.3s ease;
-    border-left: 4px solid #007bff;
-    opacity: 0;
+    border-left: 4px solid var(--second);
 }
 
 .toast-confirm.show {
@@ -64,7 +65,6 @@
 .toast-confirm-message {
     margin-bottom: 15px;
     font-size: 15px;
-    color: #333;
 }
 
 .toast-confirm-buttons {
@@ -83,19 +83,21 @@
 }
 
 .toast-confirm-buttons .btn-cancel {
-    background: #6c757d;
+    background: var(--button);
+    color: white;
+}
+.toast-confirm-buttons .btn-cancel:hover {
+    background: var(--menuhover);
     color: white;
 }
 
-.toast-confirm-buttons .btn-cancel:hover {
-    background: #5a6268;
-}
+
 
 .toast-confirm-buttons .btn-accept {
-    background: #007bff;
+    background: var(--menuhover);
     color: white;
 }
-
 .toast-confirm-buttons .btn-accept:hover {
-    background: #0056b3;
+    background: var(--neon2);
 }
+

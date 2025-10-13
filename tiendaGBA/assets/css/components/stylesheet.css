@@ -6,7 +6,7 @@
     --second: #065063;
     --neon: #63e3c2;
     --neon2: #ff0073;
-    --menuhover: #c9005b;
+    --menuhover: #8d0643;
     --white: #fff;
     --nav: #2b041d;
     --button: #5f012b;
@@ -116,16 +116,16 @@ footer {
     background-position: center center;
 }
 
+
 @media(min-width:768px) {
     .box {
-        margin: 0% 10%;
+        margin: 0% 10% ; 
         border-radius: 2rem;
         padding-bottom: 2rem;
         margin-top: 3rem;
         position: relative;
     }
 }
-
 .box {
     border: 1px solid var(--neon);
     background-color: var(--principal);
@@ -133,6 +133,10 @@ footer {
     margin-top: 2rem;
     border-radius: 1rem;
     padding-top: 0.1rem;
+}
+
+button{
+    cursor: pointer;
 }
 
 /* Estilos personalizados para dropdowns */
