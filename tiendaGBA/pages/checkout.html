@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/pages/pago.css">
+    <title>Página de Pagos</title>
+
+</head>
+
+<body class="roboto checkout_body">
+    <header id="header-container"></header>
+
+
+
+
+    <main>
+        <form class="formulario-pago" novalidate>
+            <h2 class="section-title">Datos de pago</h2>
+
+            <label for="nombre-tarjeta">Nombre completo</label>
+            <input type="text" id="nombre-tarjeta" name="nombre-tarjeta" placeholder="Nombre en la tarjeta" required>
+
+            <label for="correo">Email</label>
+            <input type="email" id="correo" name="correo" placeholder="tucorreo@ejemplo.com" required>
+
+            <label for="numero-tarjeta">Número de tarjeta</label>
+            <input type="tel" id="numero-tarjeta" name="numero-tarjeta" placeholder="1234 5678 9012 3456"
+                inputmode="numeric" pattern="[0-9\s]{13,19}" maxlength="19" required>
+
+            <div class="row">
+                <div class="col">
+                    <label for="vencimiento">Validez (MM/AA)</label>
+                    <input type="text" id="vencimiento" name="vencimiento" placeholder="08/26"
+                        pattern="^(0[1-9]|1[0-2])\/?([0-9]{2})$" required>
+                </div>
+                <div class="col">
+                    <label for="cvv">CVV</label>
+                    <input type="tel" id="cvv" name="cvv" placeholder="123" pattern="[0-9]{3,4}" maxlength="4" required>
+                </div>
+            </div>
+
+            <label for="direccion">Dirección (opcional)</label>
+            <input type="text" id="direccion" name="direccion" placeholder="Calle, número, ciudad">
+
+            <label for="cupon">Código descuento (opcional)</label>
+            <input type="text" id="cupon" name="cupon" placeholder="CUPON2025">
+
+            <div class="form-actions">
+                <label class="save-method"><input type="checkbox" id="guardar-metodo" name="guardar-metodo"> Guardar
+                    método de pago (demo)</label>
+                <span class="small">&nbsp;</span>
+            </div>
+
+            <button class="btn-primary" type="submit">Pagar ahora</button>
+            <p class="small" style="margin-top:8px;">Al hacer clic aceptas los términos y condiciones.</p>
+        </form>
+    </main>
+
+    <p class="footer__text">&copy; Todos los derechos reservados Deikel y Daniel.</p>
+        <script src="../assets/js/components/common.js"></script>
+</body>
+
+</html>

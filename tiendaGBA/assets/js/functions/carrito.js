@@ -119,13 +119,13 @@ async function actualizarCantidad(productId, cantidad, stock) {
     cantidad = parseInt(cantidad);
     
     if (cantidad < 1) {
-        alert('La cantidad mínima es 1');
+        showToast('La cantidad mínima es 1', 'warning');
         cargarCarrito();
         return;
     }
 
     if (cantidad > stock) {
-        alert(`Solo hay ${stock} unidades disponibles`);
+        showToast(`Solo hay ${stock} unidades disponibles`, 'warning');
         cargarCarrito();
         return;
     }
@@ -148,20 +148,22 @@ async function actualizarCantidad(productId, cantidad, stock) {
 
         if (data.success) {
             cargarCarrito();
+            showToast('Cantidad actualizada', 'success');
         } else {
-            alert(data.mensaje || 'Error al actualizar cantidad');
+            showToast(data.mensaje || 'Error al actualizar cantidad', 'error');
             cargarCarrito();
         }
     } catch (error) {
         console.error('Error al actualizar cantidad:', error);
-        alert('Error al actualizar cantidad');
+        showToast('Error al actualizar cantidad', 'error');
         cargarCarrito();
     }
 }
 
 // Eliminar producto del carrito
 async function eliminarProducto(productId) {
-    if (!confirm('¿Estás seguro de eliminar este producto?')) {
+    const confirmar = await showConfirm('¿Estás seguro de eliminar este producto?');
+    if (!confirmar) {
         return;
     }
 
@@ -181,19 +183,21 @@ async function eliminarProducto(productId) {
         const data = await response.json();
 
         if (data.success) {
+            showToast('Producto eliminado del carrito', 'success');
             cargarCarrito();
         } else {
-            alert(data.mensaje || 'Error al eliminar producto');
+            showToast(data.mensaje || 'Error al eliminar producto', 'error');
         }
     } catch (error) {
         console.error('Error al eliminar producto:', error);
-        alert('Error al eliminar producto');
+        showToast('Error al eliminar producto', 'error');
     }
 }
 
 // Vaciar carrito completo (función extra)
 async function vaciarCarrito() {
-    if (!confirm('¿Estás seguro de vaciar todo el carrito?')) {
+    const confirmar = await showConfirm('¿Estás seguro de vaciar todo el carrito?');
+    if (!confirmar) {
         return;
     }
 
@@ -212,13 +216,14 @@ async function vaciarCarrito() {
         const data = await response.json();
 
         if (data.success) {
+            showToast('Carrito vaciado', 'success');
             cargarCarrito();
         } else {
-            alert(data.mensaje || 'Error al vaciar carrito');
+            showToast(data.mensaje || 'Error al vaciar carrito', 'error');
         }
     } catch (error) {
         console.error('Error al vaciar carrito:', error);
-        alert('Error al vaciar carrito');
+        showToast('Error al vaciar carrito', 'error');
     }
 }
 

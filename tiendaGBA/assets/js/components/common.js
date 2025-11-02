@@ -1,4 +1,4 @@
-// common.js - Simple y ligero con apilamiento
+// common.js
 
 // Crear contenedor de notificaciones al cargar la página
 document.addEventListener('DOMContentLoaded', function() {
