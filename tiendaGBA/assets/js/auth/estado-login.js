@@ -123,15 +123,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 <li class="active"><a href="#datos-personales"><span class="menu-icon">👤</span> Datos Personales</a></li>
                 <li><a href="#crear-usuario-admin"><span class="menu-icon">👥</span> Crear Usuario Admin</a></li>
                 <li><a href="#gestionar-productos"><span class="menu-icon">📦</span> Agregar Juego</a></li>
-                <li><a href="#ordenes-sistema"><span class="menu-icon">📋</span> Todas las Órdenes</a></li>
-                <li><a href="#configuracion"><span class="menu-icon">⚙️</span> Configuración</a></li>
+
             `;
         } else {
             // Menú para clientes regulares
             menuSection.innerHTML = `
                 <li class="active"><a href="#datos-personales"><span class="menu-icon">👤</span> Datos Personales</a></li>
-                <li><a href="#historial-pedidos"><span class="menu-icon">📋</span> Historial de Pedidos</a></li>
-                <li><a href="#wishlist"><span class="menu-icon">❤️</span> Lista de Deseos</a></li>
+
             `;
         }
 

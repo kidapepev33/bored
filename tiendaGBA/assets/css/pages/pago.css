@@ -1,67 +1,51 @@
-/* Establece el color de fondo de la página */
 .checkout_body {
-    background: #1d0213;
-    color: white;
-    font-family: Arial, sans-serif;
-    margin-top: 9rem;
+    margin-top: 120px;
+    padding-top: 20px;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
+
 
 /* Contenedor del formulario */
 .formulario-pago {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
     padding: 20px;
     border-radius: 12px;
-    max-width: 520px;
-    margin: auto;
+    width: 100%;
+    /* Cambiado de max-width a width */
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
 }
 
 h2.section-title {
     margin: 0 0 12px 0;
-    font-size: 18px;
     background: rgba(0, 0, 0, 0.15);
     padding: 8px 12px;
     border-radius: 8px;
 }
 
-label {
+.formulario-pago label {
     margin: 10px 0 6px;
-    font-size: 13px;
+    font-size: 1rem;
+    max-width: 100%;
+    font-family: "Sansation", sans-serif;
+    font-weight: 400;
 }
-
-input[type="text"],
-input[type="email"],
-input[type="number"],
-input[type="tel"],
+.formulario-pago
+input[type="text"], .formulario-pago
+input[type="email"], .formulario-pago
+input[type="number"], .formulario-pago
+input[type="tel"], .formulario-pago
 select {
     margin-bottom: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
     background: rgba(0, 0, 0, 0.18);
     border-radius: 8px;
     outline: none;
     box-sizing: border-box;
-    font-size: 14px;
 }
 
 input::placeholder {
     color: rgba(255, 255, 255, 0.45);
 }
 
-.row {
-    display: flex;
-    gap: 12px;
-}
-
-.row .col {
-    flex: 1;
-}
-
-/* Checkbox y nota */
 .form-actions {
     display: flex;
     align-items: center;
@@ -74,7 +58,6 @@ input::placeholder {
     align-items: center;
     gap: 8px;
     color: #d4bfd4;
-    font-size: 13px;
 }
 
 .save-method input {
@@ -82,25 +65,93 @@ input::placeholder {
     height: 16px;
 }
 
-
-.btn-primary:active {
-    transform: translateY(1px);
-}
-
 footer {
     text-align: center;
     margin-top: 20px;
 }
 
-@media (max-width: 480px) {
+.muted_flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
-    .formulario-pago {
-        margin-top: 8rem;
-        padding: 16px;
-        max-width: 92%;
+.muted,
+.price {
+    margin: 1rem 0rem;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    border: none;
+}
+
+.container .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 85px;
+    align-items: start;
+}
+
+.card.summary {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+    padding: 20px;
+    border-radius: 12px;
+    width: 400px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+
+@media (max-width: 768px) {
+    .formulario-pago label, input{
+        font-size: 2rem;
+    }
+    .container .row {
+        grid-template-columns: 1fr;
+        gap: 0px;
     }
 
-    .row {
-        flex-direction: column;
+    .checkout_body {
+        margin-top: 1rem;
+    }
+
+    .formulario-pago,
+    .card.summary {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 2rem;
+    } 
+
+    .checkout_body {
+        margin-top: 100px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+    .card.summary h3, p, b, .muted{
+        font-size: 2rem;
+    }
+    .formulario-pago .button{
+        font-size: 2rem;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .checkout_body {
+        margin-top: 80px;
+    }
+
+    .formulario-pago {
+        padding: 16px;
+        width: 100%;
     }
 }

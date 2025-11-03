@@ -115,7 +115,7 @@ switch ($action) {
             }
 
             $_SESSION['carrito'][$productId] = $cantidadTotal;
-
+            
             echo json_encode([
                 'success' => true,
                 'mensaje' => 'Producto agregado al carrito',
@@ -215,6 +215,19 @@ switch ($action) {
         echo json_encode(['success' => false, 'mensaje' => 'Acción no válida']);
         break;
 }
+// Después de actualizar $_SESSION['carrito']
+$_SESSION['subtotal'] = []; // inicializar
+foreach ($_SESSION['carrito'] as $productId => $cantidad) {
+    $sql = "SELECT precio FROM products WHERE product_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('i', $productId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $producto = $result->fetch_assoc();
+    $_SESSION['subtotal'][$productId] = $producto['precio'] * $cantidad;
+    $stmt->close();
+}
+
 
 $conn->close();
 ?>

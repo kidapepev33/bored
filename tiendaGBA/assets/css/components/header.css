@@ -201,9 +201,10 @@ a:hover {
     border-radius: 8px;
     font-size: 1rem;
     outline: none;
-    margin-bottom: 0px; 
+    margin-bottom: 0px;
 }
-.search-bar input[type="text"]{
+
+.search-bar input[type="text"] {
     margin: 0px;
 }
 
@@ -280,4 +281,19 @@ a:hover {
     border: none;
     padding: 0px;
     margin: 0px;
+}
+
+@media (max-width: 726px) {
+    .search-bar {
+        top: 70%;
+        right: 65px;
+    }
+
+    .search-bar.active {
+        width: calc(100% - 178px);
+        padding: 1rem 1.5rem;
+    }
+    .search-bar input{
+        font-size: 1.5rem;
+    }
 }

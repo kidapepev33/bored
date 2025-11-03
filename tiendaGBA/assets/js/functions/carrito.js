@@ -111,6 +111,7 @@ function calcularTotal(productos) {
 
     document.getElementById('subtotal').textContent = total.toLocaleString();
     document.getElementById('total').textContent = total.toLocaleString();
+    
 }
 
 // Actualizar cantidad de un producto
